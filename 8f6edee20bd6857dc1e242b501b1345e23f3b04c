@@ -16,6 +16,24 @@
       "revId": "8f6edee20bd6857dc1e242b501b1345e23f3b04c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e59c7c8_9446ce54",
+        "filename": "tests/common/com/android/documentsui/services/TestNotificationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1235718
+      },
+      "writtenOn": "2017-11-28T04:43:08Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "783d1de9_2f28ee53",
+      "revId": "8f6edee20bd6857dc1e242b501b1345e23f3b04c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
