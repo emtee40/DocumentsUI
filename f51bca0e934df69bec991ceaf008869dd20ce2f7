@@ -22,6 +22,30 @@
       "revId": "f51bca0e934df69bec991ceaf008869dd20ce2f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "441b3e80_d64fdea2",
+        "filename": "tests/functional/com/android/documentsui/FileDeleteUiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1235718
+      },
+      "writtenOn": "2017-11-28T04:41:22Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "c1fd2d81_0e677747",
+      "range": {
+        "startLine": 230,
+        "startChar": 19,
+        "endLine": 230,
+        "endChar": 57
+      },
+      "revId": "f51bca0e934df69bec991ceaf008869dd20ce2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
