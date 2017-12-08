@@ -16,44 +16,52 @@
 
 package com.android.documentsui;
 
-import static com.android.documentsui.StubProvider.ROOT_0_ID;
-import static com.android.documentsui.StubProvider.ROOT_1_ID;
+import static com.android.documentsui.base.Providers.AUTHORITY_STORAGE;
+import static com.android.documentsui.base.Providers.ROOT_ID_DEVICE;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.ContentProviderClient;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.BroadcastReceiver;
+import android.content.res.Resources;
+import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.provider.Settings;
+import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.filters.LargeTest;
-import android.support.test.filters.Suppress;
-import android.support.test.uiautomator.Configurator;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.util.Log;
 
 import com.android.documentsui.base.DocumentInfo;
+import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.files.FilesActivity;
 import com.android.documentsui.services.TestNotificationService;
 
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 /**
 * This class test the below points
-* - Copy large number of files
+* - Copy large number of files on the internal/external storage
 */
 @LargeTest
 public class FileCopyUiTest extends ActivityTest<FilesActivity> {
+    private static final String TAG = "FileCopyUiTest";
+
     private static final String PACKAGE_NAME = "com.android.documentsui.tests";
+
+    private static final String TARGET_FOLDER = "test_folder";
 
     private static final String ACCESS_APP_NAME = "DocumentsUI Tests";
 
@@ -67,9 +75,19 @@ public class FileCopyUiTest extends ActivityTest<FilesActivity> {
 
     private static final String SELECT_ALL = "Select all";
 
-    private static final int DUMMY_FILE_COUNT = 1000;
+    private static final String SHOW_INTERNAL_STORAGE = "Show internal storage";
 
-    private final List<String> mCopyFileList = new ArrayList<String>();
+    private static final String NOTIFICATION_TEXT = "Corrupted Virtual SD card";
+
+    private static final String ERASE_AND_FORMAT = "ERASE & FORMAT";
+
+    private static final String DONE = "DONE";
+
+    private static final int TARGET_COUNT = 1000;
+
+    private static final int WAIT_TIME_SECONDS = 180;
+
+    private final Map<String, Long> mTargetFileList = new HashMap<String, Long>();
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -93,6 +111,20 @@ public class FileCopyUiTest extends ActivityTest<FilesActivity> {
 
     private String mErrorReason;
 
+    private DocumentsProviderHelper mStorageDocsHelper;
+
+    private ContentProviderClient mStorageClient;
+
+    private RootInfo mPrimaryRoot;
+
+    private RootInfo mSdCardRoot;
+
+    private String mSdCardLabel;
+
+    private boolean mIsVirtualSdCard;
+
+    private int mStayOnValue;
+
     public FileCopyUiTest() {
         super(FilesActivity.class);
     }
@@ -101,12 +133,48 @@ public class FileCopyUiTest extends ActivityTest<FilesActivity> {
     public void setUp() throws Exception {
         super.setUp();
 
+        // Create ContentProviderClient and DocumentsProviderHelper for using SD Card.
+        mStorageClient = mResolver.acquireUnstableContentProviderClient(
+                AUTHORITY_STORAGE);
+        mStorageDocsHelper = new DocumentsProviderHelper(AUTHORITY_STORAGE, mStorageClient);
+
         // Set a flag to prevent many refreshes.
         Bundle bundle = new Bundle();
         bundle.putBoolean(StubProvider.EXTRA_ENABLE_ROOT_NOTIFICATION, false);
         mDocsHelper.configure(null, bundle);
 
-        initTestFiles();
+        // Set "Stay awake" until test is finished.
+        mStayOnValue = Settings.Global.getInt(context.getContentResolver(),
+                Settings.Global.STAY_ON_WHILE_PLUGGED_IN);
+        automation.executeShellCommand("settings put global stay_on_while_plugged_in 3");
+
+        initStorageRootInfo();
+        if (mPrimaryRoot == null) {
+            fail("Internal Storage not found");
+        }
+
+        // If SD Card is not found, set Virtual SD Card
+        if (mSdCardRoot == null) {
+            mIsVirtualSdCard = setVirtualSdCard();
+            assertTrue("Cannot set virtual SD Card", mIsVirtualSdCard);
+        }
+
+        // If Internal Storage is not shown, turn on.
+        try {
+            bots.main.clickToolbarOverflowItem(SHOW_INTERNAL_STORAGE);
+        } catch (NoMatchingViewException e) {
+            // Ignore exception and hide menu view.
+            bots.keyboard.pressKey(KeyEvent.KEYCODE_BACK);
+        }
+
+        try {
+            if (!isEnableAccessNotification()) {
+                bots.notifications.setNotificationAccess(
+                        getActivity(), ACCESS_APP_NAME, ALLOW);
+            }
+        } catch (Exception e) {
+            fail("Cannot set notification access");
+        }
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(TestNotificationService.ACTION_OPERATION_RESULT);
@@ -116,86 +184,157 @@ public class FileCopyUiTest extends ActivityTest<FilesActivity> {
 
         mOperationExecuted = false;
         mErrorReason = "No response from Notification";
-        mCountDownLatch = new CountDownLatch(1);
     }
 
     @Override
     public void tearDown() throws Exception {
-        mCountDownLatch.countDown();
-        mCountDownLatch = null;
+        // Delete created files
+        deleteDocuments(Build.MODEL);
+        deleteDocuments(mSdCardLabel);
+
+        if (mIsVirtualSdCard) {
+            automation.executeShellCommand("sm set-virtual-disk false");
+        }
+
+        automation.executeShellCommand("settings put global stay_on_while_plugged_in "
+                + mStayOnValue);
 
         context.unregisterReceiver(mReceiver);
         try {
             if (isEnableAccessNotification()) {
-                disallowNotificationAccess();
+                bots.notifications.setNotificationAccess(
+                        getActivity(), ACCESS_APP_NAME, TURN_OFF);
             }
         } catch (Exception e) {
-            // ignore
+            // Ignore
         }
+
         super.tearDown();
     }
 
-    @Override
-    public void initTestFiles() throws RemoteException {
+    private boolean createDocuments(String label, RootInfo root,
+            DocumentsProviderHelper helper) throws Exception {
+        if (TextUtils.isEmpty(label) || root == null) {
+            return false;
+        }
+
+        // If Test folder is already created, delete it
+        if (bots.directory.hasDocuments(TARGET_FOLDER)) {
+            deleteDocuments(label);
+        }
+
+        // Create folder and create file in its folder
+        bots.roots.openRoot(label);
+        Uri uri = helper.createFolder(root, TARGET_FOLDER);
+        device.waitForIdle();
+        if (!bots.directory.hasDocuments(TARGET_FOLDER)) {
+            return false;
+        }
+
+        loadImages(uri, helper);
+
+        // Check that image files are loaded completely
+        DocumentInfo parent = helper.findDocument(root.documentId, TARGET_FOLDER);
+        List<DocumentInfo> children = helper.listChildren(parent.documentId, TARGET_COUNT);
+        for (DocumentInfo docInfo : children) {
+            mTargetFileList.put(docInfo.displayName, docInfo.size);
+        }
+        assertTrue("Lack of loading file. File count = " + mTargetFileList.size(),
+                mTargetFileList.size() == TARGET_COUNT);
+
+        return true;
+    }
+
+    private boolean deleteDocuments(String label) throws Exception {
+        if (TextUtils.isEmpty(label)) {
+            return false;
+        }
+
+        bots.roots.openRoot(label);
+        if (!bots.directory.hasDocuments(TARGET_FOLDER)) {
+            return true;
+        }
+
+        if (mCountDownLatch != null) {
+            assertTrue("Cannot wait because any operation is waiting now.",
+                    mCountDownLatch.getCount() == 0);
+        }
+
+        mCountDownLatch = new CountDownLatch(1);
+        bots.directory.selectDocument(TARGET_FOLDER);
+        device.waitForIdle();
+
+        bots.main.clickToolbarItem(R.id.action_menu_delete);
+        bots.main.clickDialogOkButton();
+        device.waitForIdle();
+
+        // Wait until copy operation finished
         try {
-            if (!isEnableAccessNotification()) {
-                allowNotificationAccess();
-            }
-            createDummyFiles();
+            mCountDownLatch.await(WAIT_TIME_SECONDS, TimeUnit.SECONDS);
         } catch (Exception e) {
-            fail("Initialization failed");
+            // Ignore
+        }
+
+        return !bots.directory.hasDocuments(TARGET_FOLDER);
+    }
+
+    private void loadImages(Uri root, DocumentsProviderHelper helper) throws Exception {
+        Context testContext = getInstrumentation().getContext();
+        Resources res = testContext.getResources();
+        try {
+            int resId = res.getIdentifier(
+                    "uitest_images", "raw", testContext.getPackageName());
+            loadImageFromResources(root, helper, resId, res);
+        } catch (Exception e) {
+            // Ignore
+            Log.d(TAG, "Error occurs when loading image. ", e);
         }
     }
 
-    private void createDummyFiles() throws Exception {
-        final ThreadPoolExecutor exec = new ThreadPoolExecutor(
-                5, 5, 1000L, TimeUnit.MILLISECONDS,
-                        new ArrayBlockingQueue<Runnable>(100, true));
-        for (int i = 0; i < DUMMY_FILE_COUNT; i++) {
-            final String fileName = "file" + String.format("%04d", i) + ".log";
-            if (exec.getQueue().size() >= 80) {
-                Thread.sleep(50);
-            }
-            exec.submit(new Runnable() {
-                @Override
-                public void run() {
-                    Uri uri = mDocsHelper.createDocument(rootDir0, "text/plain", fileName);
-                    try {
-                        mDocsHelper.writeDocument(uri, new byte[1]);
-                    } catch (Exception e) {
-                        // ignore
-                    }
+    private void loadImageFromResources(Uri root, DocumentsProviderHelper helper, int resId,
+            Resources res) {
+        ZipInputStream in = null;
+        int read = 0;
+        try {
+            in = new ZipInputStream(res.openRawResource(resId));
+            ZipEntry zipEntry = null;
+            while ((zipEntry = in.getNextEntry()) != null) {
+                String fileName = zipEntry.getName();
+                Uri uri = helper.createDocument(root, "image/png", fileName);
+                byte[] buff = new byte[1024];
+                while ((read = in.read(buff)) > 0) {
+                    helper.writeAppendDocument(uri, buff);
                 }
-            });
-            mCopyFileList.add(fileName);
+                in.closeEntry();
+                buff = null;
+            }
+        } catch (Exception e) {
+            // Ignore becase caller method has checked
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                    in  = null;
+                } catch (Exception e) {
+                }
+            }
         }
-        exec.shutdown();
     }
 
-    private void allowNotificationAccess() throws Exception {
-        Intent intent = new Intent();
-        intent.setAction(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
-        getActivity().startActivity(intent);
-        device.waitForIdle();
+    /** @return true if virtual SD Card setting is completed. Othrewise false */
+    private boolean setVirtualSdCard() throws Exception {
+        try {
+            automation.executeShellCommand("sm set-virtual-disk true");
+            bots.notifications.clickNotification(NOTIFICATION_TEXT);
+            bots.main.clickDisplayedItem(ERASE_AND_FORMAT);
+            bots.main.clickDisplayedItem(DONE);
+        } catch (Exception e) {
+            return false;
+        }
 
-        bots.main.findMenuLabelWithName(ACCESS_APP_NAME).click();
-        device.waitForIdle();
-
-        bots.main.findMenuLabelWithName(ALLOW).click();
-        bots.keyboard.pressKey(KeyEvent.KEYCODE_BACK);
-    }
-
-    private void disallowNotificationAccess() throws Exception {
-        Intent intent = new Intent();
-        intent.setAction(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
-        getActivity().startActivity(intent);
-        device.waitForIdle();
-
-        bots.main.findMenuLabelWithName(ACCESS_APP_NAME).click();
-        device.waitForIdle();
-
-        bots.main.findMenuLabelWithName(TURN_OFF).click();
-        bots.keyboard.pressKey(KeyEvent.KEYCODE_BACK);
+        // Call initStorageRootInfo() again for setting SD Card root
+        initStorageRootInfo();
+        return true;
     }
 
     private boolean isEnableAccessNotification() {
@@ -213,37 +352,98 @@ public class FileCopyUiTest extends ActivityTest<FilesActivity> {
         return false;
     }
 
-    public void testCopyAllDocument() throws Exception {
-        bots.roots.openRoot(ROOT_0_ID);
-        bots.main.clickToolbarOverflowItem(SELECT_ALL);
-        device.waitForIdle();
+    private void initStorageRootInfo() throws RemoteException {
+        List<RootInfo> rootList = mStorageDocsHelper.getRootInfoList();
+        for (RootInfo info : rootList) {
+             if (ROOT_ID_DEVICE.equals(info.rootId)) {
+                 mPrimaryRoot = info;
+             } else if (info.isSd()) {
+                 mSdCardRoot = info;
+                 mSdCardLabel = info.title;
+             } else if (info.isUsb()) {
+                // TODO: USB storage cannot be connected while testing
+                // because InstrumentationTest must be needed to connect a PC to device.
+             }
+        }
 
+        assertNotNull("Primary storage cannot be found", mPrimaryRoot);
+    }
+
+    private void copyFiles(String sourceRoot, String targetRoot) throws Exception {
+        mCountDownLatch = new CountDownLatch(1);
+        // Copy folder and child files
+        bots.roots.openRoot(sourceRoot);
+        bots.directory.selectDocument(TARGET_FOLDER);
+        device.waitForIdle();
         bots.main.clickToolbarOverflowItem(COPY);
         device.waitForIdle();
-
-        bots.roots.openRoot(ROOT_1_ID);
+        bots.roots.openRoot(targetRoot);
         bots.main.clickDialogOkButton();
         device.waitForIdle();
 
+        // Wait until copy operation finished
         try {
-            mCountDownLatch.await(60, TimeUnit.SECONDS);
+            mCountDownLatch.await(WAIT_TIME_SECONDS, TimeUnit.SECONDS);
         } catch (Exception e) {
             fail("Cannot wait because of error." + e.toString());
         }
 
         assertTrue(mErrorReason, mOperationExecuted);
+    }
 
-        bots.roots.openRoot(ROOT_1_ID);
+    private void assertCopiedFiles(String rootLabel, RootInfo rootInfo,
+            DocumentsProviderHelper helper) throws Exception {
+        // Check that copied folder exists
+        bots.roots.openRoot(rootLabel);
         device.waitForIdle();
+        bots.directory.assertDocumentsPresent(TARGET_FOLDER);
 
-        List<DocumentInfo> root1 = mDocsHelper.listChildren(rootDir1.documentId, 1000);
-        List<String> copiedFileList = new ArrayList<String>();
-        for (DocumentInfo info : root1) {
-            copiedFileList.add(info.displayName);
+        // Check that copied files exist
+        DocumentInfo parent = helper.findDocument(rootInfo.documentId, TARGET_FOLDER);
+        List<DocumentInfo> children = helper.listChildren(parent.documentId, TARGET_COUNT);
+        for (DocumentInfo info : children) {
+            Long size = mTargetFileList.get(info.displayName);
+            assertNotNull("Cannot find file.", size);
+            assertTrue("Copied file contents differ.", info.size == size);
         }
+    }
 
-        for (String name : mCopyFileList) {
-            assertTrue("Not found " + name, copiedFileList.contains(name));
-        }
+    // Copy Internal Storage -> Internal Storage //
+    public void testCopyDocuments_InternalStorage() throws Exception {
+        createDocuments(StubProvider.ROOT_0_ID, rootDir0, mDocsHelper);
+        copyFiles(StubProvider.ROOT_0_ID, StubProvider.ROOT_1_ID);
+
+        // Check that original folder exists
+        bots.roots.openRoot(StubProvider.ROOT_0_ID);
+        bots.directory.assertDocumentsPresent(TARGET_FOLDER);
+
+        // Check that copied files exist
+        assertCopiedFiles(StubProvider.ROOT_1_ID, rootDir1, mDocsHelper);
+    }
+
+    // Copy SD Card -> Internal Storage //
+    public void testCopyDocuments_FromSdCard() throws Exception {
+        createDocuments(mSdCardLabel, mSdCardRoot, mStorageDocsHelper);
+        copyFiles(mSdCardLabel, Build.MODEL);
+
+        // Check that original folder exists
+        bots.roots.openRoot(mSdCardLabel);
+        bots.directory.assertDocumentsPresent(TARGET_FOLDER);
+
+        // Check that copied files exist
+        assertCopiedFiles(Build.MODEL, mPrimaryRoot, mStorageDocsHelper);
+    }
+
+    // Copy Internal Storage -> SD Card //
+    public void testCopyDocuments_ToSdCard() throws Exception {
+        createDocuments(Build.MODEL, mPrimaryRoot, mStorageDocsHelper);
+        copyFiles(Build.MODEL, mSdCardLabel);
+
+        // Check that original folder exists
+        bots.roots.openRoot(Build.MODEL);
+        bots.directory.assertDocumentsPresent(TARGET_FOLDER);
+
+        // Check that copied files exist
+        assertCopiedFiles(mSdCardLabel, mSdCardRoot, mStorageDocsHelper);
     }
 }
