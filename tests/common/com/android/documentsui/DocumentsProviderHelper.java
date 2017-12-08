@@ -258,6 +258,26 @@ public class DocumentsProviderHelper {
         return null;
     }
 
+    public DocumentInfo findDocument(String parentId, String name, int maxCount) throws Exception {
+        List<DocumentInfo> children = listChildren(parentId, maxCount);
+        for (DocumentInfo child : children) {
+            if (name.equals(child.displayName)) {
+                return child;
+            }
+        }
+        return null;
+    }
+
+    public DocumentInfo findDocument(Uri parentUri, String name, int maxCount) throws Exception {
+        List<DocumentInfo> children = listChildren(parentUri, maxCount);
+        for (DocumentInfo child : children) {
+            if (name.equals(child.displayName)) {
+                return child;
+            }
+        }
+        return null;
+    }
+
     public List<DocumentInfo> listChildren(Uri parentUri) throws Exception {
         String id = DocumentsContract.getDocumentId(parentUri);
         return listChildren(id);
