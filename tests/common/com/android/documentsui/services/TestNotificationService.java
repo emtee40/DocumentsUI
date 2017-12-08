@@ -29,7 +29,6 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 
-
 /**
 * This class receives a callback when Notification is posted or removed
 * and monitors the Notification status.
@@ -45,18 +44,34 @@ public class TestNotificationService extends NotificationListenerService {
     public static final String ACTION_OPERATION_RESULT =
             "com.android.documentsui.services.TestNotificationService.ACTION_OPERATION_RESULT";
 
+    public static final String ACTION_DISPLAY_SD_CARD_NOTIFICATION =
+            "com.android.documentsui.services.TestNotificationService.ACTION_DISPLAY_SD_CARD_NOTIFICATION";
+
+    public static final String ACTION_SD_CARD_SETTING_COMPLETED =
+            "com.android.documentsui.services.TestNotificationService.ACTION_SD_CARD_SETTING_COMPLETED";
+
     public static final String EXTRA_RESULT =
             "com.android.documentsui.services.TestNotificationService.EXTRA_RESULT";
 
     public static final String EXTRA_ERROR_REASON =
             "com.android.documentsui.services.TestNotificationService.EXTRA_ERROR_REASON";
 
+    private static final String UNSUPPORTED_NOTIFICATION_TEXT = "Unsupported Virtual SD card";
+
+    private static final String CORRUPTED_NOTIFICATION_TEXT = "Corrupted Virtual SD card";
+
+    private static final String VIRTUAL_SD_CARD_TEXT = "Virtual SD card";
+
+    private final static String DOCUMENTSUI_PACKAGE= "com.android.documentsui";
+
+    private final static String SD_CARD_NOTIFICATION_PACKAGE = "com.android.systemui";
+
+    private final static String CANCEL = "Cancel";
+
     public enum MODE {
         CANCEL_MODE,
         EXECUTION_MODE;
     }
-
-    private String DOCUMENTSUI= "com.android.documentsui";
 
     private FrameLayout mFrameLayout = null;
 
@@ -103,19 +118,19 @@ public class TestNotificationService extends NotificationListenerService {
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
         String pkgName = sbn.getPackageName();
-        if (!pkgName.equals(DOCUMENTSUI)) {
-            return;
-        }
-
-        if (MODE.CANCEL_MODE.equals(mCurrentMode)) {
-            mCancelled = doCancel(sbn.getNotification());
+        if (SD_CARD_NOTIFICATION_PACKAGE.equals(pkgName)) {
+            sendBroadcastForVirtualSdCard(sbn.getNotification());
+        } else if (DOCUMENTSUI_PACKAGE.equals(pkgName)) {
+            if (MODE.CANCEL_MODE.equals(mCurrentMode)) {
+                mCancelled = doCancel(sbn.getNotification());
+            }
         }
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
         String pkgName = sbn.getPackageName();
-        if (!pkgName.equals(DOCUMENTSUI)) {
+        if (!DOCUMENTSUI_PACKAGE.equals(pkgName)) {
             return;
         }
 
@@ -135,6 +150,16 @@ public class TestNotificationService extends NotificationListenerService {
         sendBroadcast(intent);
     }
 
+    private void sendBroadcastForVirtualSdCard(Notification notification) {
+        String title = notification.extras.getString(Notification.EXTRA_TITLE);
+        if (UNSUPPORTED_NOTIFICATION_TEXT.equals(title) ||
+                CORRUPTED_NOTIFICATION_TEXT.equals(title)) {
+            sendBroadcast(new Intent(ACTION_DISPLAY_SD_CARD_NOTIFICATION));
+        } else if (VIRTUAL_SD_CARD_TEXT.equals(title)) {
+            sendBroadcast(new Intent(ACTION_SD_CARD_SETTING_COMPLETED));
+        }
+    }
+
     private boolean doCancel(Notification noti) {
         if (!isStartProgress(noti)) {
             return false;
@@ -147,7 +172,7 @@ public class TestNotificationService extends NotificationListenerService {
 
         boolean result = false;
         for (Notification.Action item : aList) {
-            if (item.title.equals("Cancel")) {
+            if (CANCEL.equals(item.title)) {
                 try {
                     item.actionIntent.send();
                     result = true;
@@ -208,4 +233,3 @@ public class TestNotificationService extends NotificationListenerService {
         return result;
     }
 }
-
