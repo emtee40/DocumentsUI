@@ -242,6 +242,13 @@ public class UiBot extends Bots.BaseBot {
         return mDevice.findObject(selector);
     }
 
+    public void clickDisplayedItem(String label) {
+        mDevice.wait(Until.hasObject(By.text(label)), mTimeout);
+        UiObject2 item = mDevice.findObject(By.text(label));
+        item.click();
+        mDevice.waitForIdle();
+    }
+
     UiObject2 findMenuWithName(String label) {
         List<UiObject2> menuItems = mDevice.findObjects(By.clazz("android.widget.LinearLayout"));
         Iterator<UiObject2> it = menuItems.iterator();
