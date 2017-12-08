@@ -23,12 +23,6 @@ import android.content.IntentFilter;
 import android.content.BroadcastReceiver;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
-import android.widget.RemoteViews;
-
 
 /**
 * This class receives a callback when Notification is posted or removed
@@ -45,22 +39,34 @@ public class TestNotificationService extends NotificationListenerService {
     public static final String ACTION_OPERATION_RESULT =
             "com.android.documentsui.services.TestNotificationService.ACTION_OPERATION_RESULT";
 
+    public static final String ACTION_DISPLAY_SD_CARD_NOTIFICATION =
+            "com.android.documentsui.services.TestNotificationService.ACTION_DISPLAY_SD_CARD_NOTIFICATION";
+
+    public static final String ACTION_SD_CARD_SETTING_COMPLETED =
+            "com.android.documentsui.services.TestNotificationService.ACTION_SD_CARD_SETTING_COMPLETED";
+
     public static final String EXTRA_RESULT =
             "com.android.documentsui.services.TestNotificationService.EXTRA_RESULT";
 
     public static final String EXTRA_ERROR_REASON =
             "com.android.documentsui.services.TestNotificationService.EXTRA_ERROR_REASON";
 
+    private static final String UNSUPPORTED_NOTIFICATION_TEXT = "Unsupported Virtual SD card";
+
+    private static final String CORRUPTED_NOTIFICATION_TEXT = "Corrupted Virtual SD card";
+
+    private static final String VIRTUAL_SD_CARD_TEXT = "Virtual SD card";
+
+    private final static String DOCUMENTSUI_PACKAGE= "com.android.documentsui";
+
+    private final static String SD_CARD_NOTIFICATION_PACKAGE = "com.android.systemui";
+
+    private final static String CANCEL = "Cancel";
+
     public enum MODE {
         CANCEL_MODE,
         EXECUTION_MODE;
     }
-
-    private String DOCUMENTSUI= "com.android.documentsui";
-
-    private FrameLayout mFrameLayout = null;
-
-    private ProgressBar mProgressBar = null;
 
     private MODE mCurrentMode = MODE.CANCEL_MODE;
 
@@ -80,7 +86,6 @@ public class TestNotificationService extends NotificationListenerService {
 
     @Override
     public void onCreate() {
-        mFrameLayout = new FrameLayout(getBaseContext());
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_CHANGE_CANCEL_MODE);
         filter.addAction(ACTION_CHANGE_EXECUTION_MODE);
@@ -95,27 +100,24 @@ public class TestNotificationService extends NotificationListenerService {
     @Override
     public void onDestroy() {
         unregisterReceiver(mReceiver);
-        mProgressBar = null;
-        mFrameLayout.removeAllViews();
-        mFrameLayout = null;
     }
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
         String pkgName = sbn.getPackageName();
-        if (!pkgName.equals(DOCUMENTSUI)) {
-            return;
-        }
-
-        if (MODE.CANCEL_MODE.equals(mCurrentMode)) {
-            mCancelled = doCancel(sbn.getNotification());
+        if (SD_CARD_NOTIFICATION_PACKAGE.equals(pkgName)) {
+            sendBroadcastForVirtualSdCard(sbn.getNotification());
+        } else if (DOCUMENTSUI_PACKAGE.equals(pkgName)) {
+            if (MODE.CANCEL_MODE.equals(mCurrentMode)) {
+                mCancelled = doCancel(sbn.getNotification());
+            }
         }
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
         String pkgName = sbn.getPackageName();
-        if (!pkgName.equals(DOCUMENTSUI)) {
+        if (!DOCUMENTSUI_PACKAGE.equals(pkgName)) {
             return;
         }
 
@@ -126,20 +128,22 @@ public class TestNotificationService extends NotificationListenerService {
                 intent.putExtra(EXTRA_ERROR_REASON, "Cannot executed cancel");
             }
         } else if (MODE.EXECUTION_MODE.equals(mCurrentMode)) {
-            boolean isStartProgress = isStartProgress(sbn.getNotification());
-            intent.putExtra(EXTRA_RESULT, isStartProgress);
-            if (!isStartProgress) {
-                intent.putExtra(EXTRA_ERROR_REASON, "Progress does not displayed correctly.");
-            }
+            intent.putExtra(EXTRA_RESULT, true);
         }
         sendBroadcast(intent);
     }
 
-    private boolean doCancel(Notification noti) {
-        if (!isStartProgress(noti)) {
-            return false;
+    private void sendBroadcastForVirtualSdCard(Notification notification) {
+        String title = notification.extras.getString(Notification.EXTRA_TITLE);
+        if (UNSUPPORTED_NOTIFICATION_TEXT.equals(title) ||
+                CORRUPTED_NOTIFICATION_TEXT.equals(title)) {
+            sendBroadcast(new Intent(ACTION_DISPLAY_SD_CARD_NOTIFICATION));
+        } else if (VIRTUAL_SD_CARD_TEXT.equals(title)) {
+            sendBroadcast(new Intent(ACTION_SD_CARD_SETTING_COMPLETED));
         }
+    }
 
+    private boolean doCancel(Notification noti) {
         Notification.Action aList [] = noti.actions;
         if (aList == null) {
             return false;
@@ -147,7 +151,7 @@ public class TestNotificationService extends NotificationListenerService {
 
         boolean result = false;
         for (Notification.Action item : aList) {
-            if (item.title.equals("Cancel")) {
+            if (CANCEL.equals(item.title)) {
                 try {
                     item.actionIntent.send();
                     result = true;
@@ -157,55 +161,4 @@ public class TestNotificationService extends NotificationListenerService {
         }
         return result;
     }
-
-    private boolean isStartProgress(Notification notifiction) {
-        ProgressBar progressBar = getProgresssBar(getRemoteViews(notifiction));
-        return (progressBar != null) ? progressBar.getProgress() > 0 : false;
-    }
-
-    private RemoteViews getRemoteViews(Notification notifiction) {
-        Notification.Builder builder = Notification.Builder.recoverBuilder(
-            getBaseContext(), notifiction);
-        if (builder == null) {
-            return null;
-        }
-
-        return builder.createContentView();
-    }
-
-    private ProgressBar getProgresssBar(RemoteViews remoteViews) {
-        if (remoteViews == null) {
-            return null;
-        }
-
-        View view = remoteViews.apply(getBaseContext(), mFrameLayout);
-        return getProgressBarImpl(view);
-    }
-
-    private ProgressBar getProgressBarImpl(View view) {
-        if (view == null || !(view instanceof ViewGroup)) {
-            return null;
-        }
-
-        ViewGroup viewGroup = (ViewGroup)view;
-        if (viewGroup.getChildCount() <= 0) {
-            return null;
-        }
-
-        ProgressBar result = null;
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            View v = viewGroup.getChildAt(i);
-            if (v instanceof ProgressBar) {
-                result = ((ProgressBar)v);
-                break;
-            } else if (v instanceof ViewGroup) {
-                result = getProgressBarImpl(v);
-                if (result != null) {
-                    break;
-                }
-            }
-        }
-        return result;
-    }
 }
-
