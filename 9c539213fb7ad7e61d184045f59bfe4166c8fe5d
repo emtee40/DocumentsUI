@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b21f3f73_be0e3c01",
+        "filename": "tests/functional/com/android/documentsui/CancelFromNotificationUiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-22T17:54:55Z",
+      "side": 1,
+      "message": "Rather than calling mDocsHelper.configure a second time (it\u0027s already called once in setUp), move the call to configure into a separate method in ActivityTest. Then override that in this class.\n\nE.g.\n\nActivityTest.setUp:\n  ///....\n  configureStorage();\n\n\nActivityTest.configureStorage:\n  mDocsHelper.configure(null, Bundle.EMPTY);\n\n\n...\n\nThen override that method:\n\nCancelFromNotificationUiTest.configureStorage:\n    // super.setUp() method will change the storage size to 100MB.\n    // So, reset the storage size again to 500MB.\n    Bundle bundle \u003d new Bundle();\n    bundle.putLong(EXTRA_SIZE, 500L);\n    mDocsHelper.configure(null, bundle);\n\n\nIt\u0027s not perfect because we also have that initTestFiles method. But it should be good enough.",
+      "revId": "9c539213fb7ad7e61d184045f59bfe4166c8fe5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
