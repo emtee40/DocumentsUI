@@ -42,6 +42,40 @@
     },
     {
       "key": {
+        "uuid": "c1cc7ea2_92a53bd2",
+        "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-23T16:55:22Z",
+      "side": 1,
+      "message": "This test feels very similar to https://codesearch.corp.google.com/android/packages/apps/DocumentsUI/tests/functional/com/android/documentsui/FileCopyUiTest.java but with a focus on external storage. That\u0027s fine, but maybe we can do more to share code.\n\nInitially I wonder if the new test coverage could be added directly to FileCopyUiTest as new test methods.\n\nIf you feel strongly that the external storage tests belong in a separate class, maybe it can subclass FileCopyUiTest to reduce duplicate/boilerplate code.\n\nIf a separate class, then name it liken sub-case of the existing copy test:\n\nFileCopyUi_ExternalStorageTest",
+      "revId": "e1c1f1fe40fee551c204d58d218470edec5327c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91fccbb8_50a0b08b",
+        "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-23T16:55:22Z",
+      "side": 1,
+      "message": "This is called on 190. Does calling it again do something different?",
+      "revId": "e1c1f1fe40fee551c204d58d218470edec5327c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc47bc5e_2c2b50c4",
         "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
         "patchSetId": 2
