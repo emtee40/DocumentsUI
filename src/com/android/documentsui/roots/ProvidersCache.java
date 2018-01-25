@@ -241,13 +241,8 @@ public class ProvidersCache implements ProvidersAccess {
         if (VERBOSE) Log.v(TAG, "Loading roots for " + authority);
 
         final ArrayList<RootInfo> roots = new ArrayList<>();
-        final PackageManager pm = mContext.getPackageManager();
-        ProviderInfo provider = pm.resolveContentProvider(
+        ProviderInfo provider = mContext.getPackageManager().resolveContentProvider(
                 authority, PackageManager.GET_META_DATA);
-        if (provider == null) {
-            Log.w(TAG, "Failed to get provider for " + authority);
-            return roots;
-        }
         if (!provider.exported) {
             Log.w(TAG, "Provider is not exported. Failed to load roots for " + authority);
             return roots;
@@ -266,6 +261,7 @@ public class ProvidersCache implements ProvidersAccess {
 
         synchronized (mObservedAuthoritiesDetails) {
             if (!mObservedAuthoritiesDetails.containsKey(authority)) {
+                PackageManager pm = mContext.getPackageManager();
                 CharSequence appName = pm.getApplicationLabel(provider.applicationInfo);
                 String packageName = provider.applicationInfo.packageName;
 
