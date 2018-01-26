@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c824d12b_399223df",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-26T18:31:47Z",
+      "side": 1,
+      "message": "This is fine (it\u0027s actually best practice in my opinion), but are you confident that all calling code has non-null values? Or are you at least comfortable with the fact that we might just be exposing errors further up the call stack?",
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
