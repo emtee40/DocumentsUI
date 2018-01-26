@@ -16,6 +16,47 @@
       "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3913789_288c5820",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-26T23:10:43Z",
+      "side": 1,
+      "message": "Thank you for the good comment.\nI was worried about that. I\u0027m not 100% confident whether all calling code has non-null value, moreover no guarantee in the future. Do you mind if I change to null-check (if authority \u003d\u003d null, then return null) here?",
+      "parentUuid": "c824d12b_399223df",
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c98face_392ed7eb",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-26T23:10:43Z",
+      "side": 1,
+      "message": "Same as above, as this also called from out of this class.",
+      "range": {
+        "startLine": 341,
+        "startChar": 8,
+        "endLine": 341,
+        "endChar": 21
+      },
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
