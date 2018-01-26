@@ -334,6 +334,7 @@ public class ProvidersCache implements ProvidersAccess {
         synchronized (mLock) {
             RootInfo root = forceRefresh ? null : getRootLocked(authority, rootId);
             if (root == null) {
+                mRoots.removeAll(authority);
                 mRoots.putAll(authority, loadRootsForAuthority(
                                 mContext.getContentResolver(), authority, forceRefresh));
                 root = getRootLocked(authority, rootId);
