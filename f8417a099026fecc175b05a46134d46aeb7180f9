@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bb416cd_65cc911f",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-26T15:52:41Z",
+      "side": 1,
+      "message": "From a codebase standards perspective, we should reject invalid input (rather than accommodate it). E.g.\n\nimport static android.support.v4.util.Preconditions.checkArgument;\n\nthen \n\ncheckArgument(authority !\u003d null);\n\nI do understand that you\u0027re fixing a crash, you\u0027ll need to trace the path of the authority value back to where it enters the class (or even the system), then put the null safety check there.",
+      "revId": "f8417a099026fecc175b05a46134d46aeb7180f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7bbfab1_53a46a56",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-26T15:52:41Z",
+      "side": 1,
+      "message": "Add a checkArgument(info.authority !\u003d null) here too. Then add the null safety check around line 471.\n\nYou get the idea. Push the error safety guards out to the edges of the class. Anywhere else in the class that accepts input, be strict by adding checkArgument to validate the input.",
+      "revId": "f8417a099026fecc175b05a46134d46aeb7180f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
