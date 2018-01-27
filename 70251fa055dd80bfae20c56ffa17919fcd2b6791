@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f109bd09_b3d8e4da",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-27T00:13:35Z",
+      "side": 1,
+      "message": "I think there are two sides to the coin. On one side the callers aren\u0027t necessarily null checking values before calling this method. On the other side the callers aren\u0027t necessarily checking if the return value is null.\n\nIt\u0027s up to you how you\u0027d like to proceed with that, but from my perspective this change hardens the contract of this class, and that\u0027s a good starting point.\n\nIf you really want to button this up, then you\u0027re probably going to have to chase down all the callers and guard one or both of those cases.",
+      "parentUuid": "e3913789_288c5820",
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c98face_392ed7eb",
         "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
         "patchSetId": 4
@@ -48,6 +66,30 @@
       "writtenOn": "2018-01-26T23:10:43Z",
       "side": 1,
       "message": "Same as above, as this also called from out of this class.",
+      "range": {
+        "startLine": 341,
+        "startChar": 8,
+        "endLine": 341,
+        "endChar": 21
+      },
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4e32dc6_7d746bad",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-27T00:13:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c98face_392ed7eb",
       "range": {
         "startLine": 341,
         "startChar": 8,
