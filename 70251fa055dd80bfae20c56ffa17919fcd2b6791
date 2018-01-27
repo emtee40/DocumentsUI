@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "048e1a2c_319009d6",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-27T00:40:16Z",
+      "side": 1,
+      "message": "OK, I agree. There\u0027s no obvious concern on hardening the check here now, as it should have been causing the error anyway in internal method of this class even until now if null authority is given.\nIt\u0027s fine to me to be able to avoid the crash by the invalid provider (that can be caused by the external factor of DocumentsUI) that is now guarded by line 471 check.",
+      "parentUuid": "f109bd09_b3d8e4da",
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c98face_392ed7eb",
         "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
         "patchSetId": 4
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "9c98face_392ed7eb",
+      "range": {
+        "startLine": 341,
+        "startChar": 8,
+        "endLine": 341,
+        "endChar": 21
+      },
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a3b7f34_1afdf60e",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-27T00:40:16Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "d4e32dc6_7d746bad",
       "range": {
         "startLine": 341,
         "startChar": 8,
