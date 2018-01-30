@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "277d3261_9136306a",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-30T00:47:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "048e1a2c_319009d6",
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c98face_392ed7eb",
         "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
         "patchSetId": 4
@@ -132,6 +150,30 @@
       "side": 1,
       "message": "Same as above.",
       "parentUuid": "d4e32dc6_7d746bad",
+      "range": {
+        "startLine": 341,
+        "startChar": 8,
+        "endLine": 341,
+        "endChar": 21
+      },
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08552756_7c5db209",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-30T00:47:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a3b7f34_1afdf60e",
       "range": {
         "startLine": 341,
         "startChar": 8,
