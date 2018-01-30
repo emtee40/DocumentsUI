@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "03cc81b5_8afc6bbf",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-30T09:23:17Z",
+      "side": 1,
+      "message": "Steve-san,\nSorry for changing my mind but I would like to remove the check here. There\u0027s a fake root info for \"Recent\" managed in mRoots. The authority and rootId of \"Recent\" root is null (line#109) and it\u0027s added to mRoots (line#462, 485). I could not find the actual use-case, but if caller of this method pass authority\u003dnull, I think the root info for \"Recent\" should be hit in getRootLocked (line#343) and to be returned to the caller because the \"Recent\" root info is managed in mRoots as well as other real authorities/roots.",
+      "parentUuid": "277d3261_9136306a",
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c98face_392ed7eb",
         "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
         "patchSetId": 4
