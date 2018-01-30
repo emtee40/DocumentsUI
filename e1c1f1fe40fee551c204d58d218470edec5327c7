@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "1e695589_64465dd0",
+        "filename": "tests/common/com/android/documentsui/DocumentsProviderHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-30T08:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "313dc215_79f2ba6d",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 5
+      },
+      "revId": "e1c1f1fe40fee551c204d58d218470edec5327c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c1cc7ea2_92a53bd2",
         "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
         "patchSetId": 2
@@ -53,6 +77,24 @@
       "writtenOn": "2018-01-23T16:55:22Z",
       "side": 1,
       "message": "This test feels very similar to https://codesearch.corp.google.com/android/packages/apps/DocumentsUI/tests/functional/com/android/documentsui/FileCopyUiTest.java but with a focus on external storage. That\u0027s fine, but maybe we can do more to share code.\n\nInitially I wonder if the new test coverage could be added directly to FileCopyUiTest as new test methods.\n\nIf you feel strongly that the external storage tests belong in a separate class, maybe it can subclass FileCopyUiTest to reduce duplicate/boilerplate code.\n\nIf a separate class, then name it liken sub-case of the existing copy test:\n\nFileCopyUi_ExternalStorageTest",
+      "revId": "e1c1f1fe40fee551c204d58d218470edec5327c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61c9b3c1_c2a3eb89",
+        "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-30T08:35:45Z",
+      "side": 1,
+      "message": "We merged this test using SD Card into this class to reduce the duplicate code.",
+      "parentUuid": "c1cc7ea2_92a53bd2",
       "revId": "e1c1f1fe40fee551c204d58d218470edec5327c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -76,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "15d00859_11357edc",
+        "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-30T08:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91fccbb8_50a0b08b",
+      "revId": "e1c1f1fe40fee551c204d58d218470edec5327c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc47bc5e_2c2b50c4",
         "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
         "patchSetId": 2
@@ -87,6 +147,30 @@
       "writtenOn": "2018-01-23T15:54:47Z",
       "side": 1,
       "message": "super.tearDown() is called here, but super.setup() isn\u0027t in the setup()",
+      "range": {
+        "startLine": 252,
+        "startChar": 8,
+        "endLine": 252,
+        "endChar": 17
+      },
+      "revId": "e1c1f1fe40fee551c204d58d218470edec5327c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0017c577_e4190b3b",
+        "filename": "tests/functional/com/android/documentsui/StorageManagementUiTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-30T08:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc47bc5e_2c2b50c4",
       "range": {
         "startLine": 252,
         "startChar": 8,
