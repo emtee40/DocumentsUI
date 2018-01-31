@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90b95fdc_0474066e",
+        "filename": "tests/README",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Please add a warning about the format/erase that the test will perform if physical media is inserted.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23dd63f0_d8d594af",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Google style requires we treat \"SD\" as a word. mSdCardRoot. Please make that change everywhere in this file.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ebd2c0_835ac278",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Google style requires we treat \"SD\" as a word. So \"setVirtualSdCard\".\n\nCan this method be private? Also, what does the return boolean value indicate? Add simple javadoc to explain.\n\n/** @return true if \u003cdescribe conditions that result in true being returned\u003e */",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9de3f65b_e9a69fd6",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "I\u0027d prefer we keep all of the uiautomator and related helper logic encapsulated in one of the Bots. This keeps our tests as simple (and readable) as possible, and ensures our test support code can be shared across classes.\n\nFeel free to add a new Bot if there is no suitable existing bot. Maybe called NotificationsBot?",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91af275f_288ff064",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Could this be the return value?\n\npublic setUp() {\n  // ...\n  mIsVirtualSdCard \u003d setupVirtualSdCard();\n}",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed60ad0e_69d37c3d",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "I don\u0027t understand why setStorageRootInfo needs to be called twice. Can you explain?",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57df79b5_1fd0cbd9",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "This can go into the NotificationsBot too.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a1ff79d_d44fb9b6",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "setupStorageRootInfo? initStorageRootInfo? In general \"set\" prefix is reserved for a property setter.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b931151_1317362b",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Google style requires space between cast operator and argument.\n\n(StorageManager) context.getSystemService(",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0669cd2_556c4280",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Is this helpful? https://codesearch.corp.google.com/android/frameworks/base/packages/ExternalStorageProvider/src/com/android/externalstorage/ExternalStorageProvider.java?l\u003d213\n\nIf I understand what you\u0027re doing correctly, you can just check to see if the RootInfo has the Root.FLAG_REMOVABLE_SD.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae33cc6d_8bae0fcc",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Oh. I see, it looks like you might need access to information not accessible as a FLAG via base/RootInfo.java. You can ignore the previous comment.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd542080_7ebb7eb7",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "Suggest you move this code into DocumentsProviderHelper. There it can be used in other tests. But instead of returning a List\u003cString\u003e return a List\u003cRootInfo\u003e. You can use RootInfo.fromRootsCursor \n\nhttps://codesearch.corp.google.com/android/packages/apps/DocumentsUI/src/com/android/documentsui/base/RootInfo.java?l\u003d185",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7bb3d4_c60df66b",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "assertFilesCopied",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f59e988_204f6abb",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "testCopyDocuments_InternalStorage",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25ebcacb_a8b136ef",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "testCopyDocuments_FromSdCard",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c43385_2568f3f6",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T00:54:01Z",
+      "side": 1,
+      "message": "testCopyDocuments_ToSdCard",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
