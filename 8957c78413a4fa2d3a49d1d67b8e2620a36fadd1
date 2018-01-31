@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55d24de2_ef3899a3",
+        "filename": "tests/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "Add a comment indicating that inserted media is erased/formatted as part of the test.",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d7b2d6a_8a559994",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "Looks like there are obsolete imports that need cleanup.",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c749b9f_b486823a",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "This should never happen, right? If so I think it would be better to just call fail(\"Can\u0027t find advanced storage menu item.\")... like you do below with notification access.",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9e01b13_4b194d95",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "setVirtualSdCard \u003e enableVirtualSdCard",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c775b57_5219220f",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "Pull this up to setUp. E.g.:\n\n\n        // If SD Card is not found, set Virtual SD Card\n        if (mSdCardRoot \u003d\u003d null) {\n            mIsVirtualSdCard \u003d setVirtualSdCard();\n            assertTrue(\"Cannot set virtual SD Card\", mIsVirtualSdCard);\n            initStorageRootInfo();\n        }",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a13f665_b1a542ba",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "isEnableAccessNotification \u003e isNotificationAccessEnabled\n\nAlso, should this move over to NotificationBot too? I realize it isn\u0027t interacting with one of the automation frameworks, but it is logically coupled.",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ab23837_d1fb7d9b",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "Either drop the unlikely isUsb block entirely, or make it this a fail?",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03813966_336fcd4d",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-01-31T21:43:41Z",
+      "side": 1,
+      "message": "Since you have a zip file handy, can you add one more test method that covers copying files out of the zip? It\u0027ll take some tweaking to your copyFiles method, but it\u0027ll be a beneficial addition to the improvements you\u0027re making.",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
