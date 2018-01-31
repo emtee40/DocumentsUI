@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "75ce2c0f_c7e174d5",
+        "filename": "tests/README",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "This test doesn\u0027t format SD card and erase any existing files.",
+      "parentUuid": "90b95fdc_0474066e",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23dd63f0_d8d594af",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "Google style requires we treat \"SD\" as a word. mSdCardRoot. Please make that change everywhere in this file.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b4df1e_4ee5f586",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23dd63f0_d8d594af",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "85d53f8f_fc6ef98d",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ebd2c0_835ac278",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9de3f65b_e9a69fd6",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "I\u0027d prefer we keep all of the uiautomator and related helper logic encapsulated in one of the Bots. This keeps our tests as simple (and readable) as possible, and ensures our test support code can be shared across classes.\n\nFeel free to add a new Bot if there is no suitable existing bot. Maybe called NotificationsBot?",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6e54126_4441a0dd",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9de3f65b_e9a69fd6",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "cd166d26_feffd6f6",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91af275f_288ff064",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed60ad0e_69d37c3d",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "I don\u0027t understand why setStorageRootInfo needs to be called twice. Can you explain?",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8937bb3_850c2f76",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "In the 1st call, it tries to get root info for both internal storage (mPrimaryRoot) and SD (mSdCardRoot). If SD card is not inserted, this method is called to setup virtual SD and call initStorageRootInfo again to set root info for SD card again.",
+      "parentUuid": "ed60ad0e_69d37c3d",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "51d04d11_d8e32b5e",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57df79b5_1fd0cbd9",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a1ff79d_d44fb9b6",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -132,6 +258,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "setupStorageRootInfo? initStorageRootInfo? In general \"set\" prefix is reserved for a property setter.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0133d05_da33541b",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a1ff79d_d44fb9b6",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "dff20ef7_cf9f0a17",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b931151_1317362b",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0669cd2_556c4280",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -166,6 +328,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "Is this helpful? https://codesearch.corp.google.com/android/frameworks/base/packages/ExternalStorageProvider/src/com/android/externalstorage/ExternalStorageProvider.java?l\u003d213\n\nIf I understand what you\u0027re doing correctly, you can just check to see if the RootInfo has the Root.FLAG_REMOVABLE_SD.",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9de9d4b6_67195621",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0669cd2_556c4280",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "cb8da246_d8056217",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae33cc6d_8bae0fcc",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd542080_7ebb7eb7",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -200,6 +398,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "Suggest you move this code into DocumentsProviderHelper. There it can be used in other tests. But instead of returning a List\u003cString\u003e return a List\u003cRootInfo\u003e. You can use RootInfo.fromRootsCursor \n\nhttps://codesearch.corp.google.com/android/packages/apps/DocumentsUI/src/com/android/documentsui/base/RootInfo.java?l\u003d185",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "889e23a4_afcd5b5e",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd542080_7ebb7eb7",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "bfc2d7e5_fc51e557",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd7bb3d4_c60df66b",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1f59e988_204f6abb",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -234,6 +468,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "testCopyDocuments_InternalStorage",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e465125_4e953497",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f59e988_204f6abb",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "161d04c6_bcbf8410",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ebcacb_a8b136ef",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8c43385_2568f3f6",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 3
@@ -268,6 +538,24 @@
       "writtenOn": "2018-01-31T00:54:01Z",
       "side": 1,
       "message": "testCopyDocuments_ToSdCard",
+      "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d8a8f8_acaa9e39",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T12:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8c43385_2568f3f6",
       "revId": "ac3fc13aed5e4194cd8515f20ab4434ad45e25d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
