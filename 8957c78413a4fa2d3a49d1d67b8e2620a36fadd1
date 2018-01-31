@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9cce152b_4a0f2b2e",
+        "filename": "tests/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T22:21:23Z",
+      "side": 1,
+      "message": "This test does not format or erase existing files on SD Card.",
+      "parentUuid": "55d24de2_ef3899a3",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d7b2d6a_8a559994",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
@@ -132,6 +150,24 @@
       "writtenOn": "2018-01-31T21:43:41Z",
       "side": 1,
       "message": "Since you have a zip file handy, can you add one more test method that covers copying files out of the zip? It\u0027ll take some tweaking to your copyFiles method, but it\u0027ll be a beneficial addition to the improvements you\u0027re making.",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5de7d98_eb2234ef",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T22:21:23Z",
+      "side": 1,
+      "message": "Do you mean that the new test case copy some files in uitest_images.zip out of the zip file?",
+      "parentUuid": "03813966_336fcd4d",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
