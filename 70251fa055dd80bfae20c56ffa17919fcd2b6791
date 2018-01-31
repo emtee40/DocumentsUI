@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "fa9ae751_c865b655",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-01-31T03:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03cc81b5_8afc6bbf",
+      "revId": "70251fa055dd80bfae20c56ffa17919fcd2b6791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c98face_392ed7eb",
         "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
         "patchSetId": 4
