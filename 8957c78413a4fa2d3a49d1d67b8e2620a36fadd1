@@ -213,6 +213,24 @@
     },
     {
       "key": {
+        "uuid": "77a4fe59_e6f0313d",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T23:18:27Z",
+      "side": 1,
+      "message": "Thanks. Maybe we have to take care of the case that the external storage volume is adoptable. We\u0027ll check and update.",
+      "parentUuid": "e030a290_9ec7e6be",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c775b57_5219220f",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
