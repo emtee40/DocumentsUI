@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "30b8fa98_0391f8a5",
+        "filename": "tests/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T22:01:44Z",
+      "side": 1,
+      "message": "It\u0027s done on Virtual disk (emulated SD Card) only, as format is required after virtual disk is created.",
+      "parentUuid": "f1f6a98e_fdfe6c19",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d7b2d6a_8a559994",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
@@ -330,6 +348,24 @@
       "side": 1,
       "message": "Yes, exactly. There\u0027s a zip file in resources (you added one in this change). DocumentsUI supports browsing zip files and copying files out of them (like any other folder), and your test is about exercising more real-world scenarios. So during setup when you\u0027re copying files out of the zip, you can also copy the zip file itself. Then add a new test method that browses into the Zip and copies some (or all) of the files out of the zip using DocumentsUI.\n\nI\u0027m not asserting that *you must to do this*, just suggesting it would be a nice addition to this change.",
       "parentUuid": "d5c94aa2_3e10efee",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7fc5a0d_6d0a86b0",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T22:01:44Z",
+      "side": 1,
+      "message": "Thank you for the clarification and good suggestion. Understood. Perhaps it\u0027s more like a Archive test to be belong to ArchiveUiTest.java.\nAnyway, we\u0027re happy to add the test because as we have a plan to add file move scenario to SD Card if this fundamental commit is accepted.\nIf it\u0027s fine for you, we\u0027d like to do it in the next CL after this large CL with with SD Card setup is once accepted.",
+      "parentUuid": "b031d0bf_48893d6b",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
