@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "2e751802_3d061d96",
+        "filename": "tests/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-02-01T23:07:59Z",
+      "side": 1,
+      "message": "I see, it\u0027s a partition made off of existing internal storage. Nice.",
+      "parentUuid": "30b8fa98_0391f8a5",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d7b2d6a_8a559994",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
@@ -172,6 +190,23 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "e9e01b13_4b194d95",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e030a290_9ec7e6be",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-02-01T23:07:59Z",
+      "side": 1,
+      "message": "I cherry picked over your change and the test fails against the current tip of tree sources. Possibly the dialog for handling devices has changed.\n\nJeff Sharkey suggested you can do something like this:\n\nautomation.executeShellCommand(\"sm set-virtual-disk true\");\n// will partition and format\nautomation.executeShellCommand(String.format(\"sm partition %s public\" getAdoptionDisk()));\n\n\n//// Here\u0027s what I saw when I tested.\n \n[Bending] adb shell am instrument -w -e log false -e timeout_msec 300000 -e class com.android.documentsui.FileCopyUiTest com.android.documentsui.tests/android.support.test.runner.AndroidJUnitRunner com.android.documentsui.FileCopyUiTest\n\ncom.android.documentsui.FileCopyUiTest:\nError in testCopyDocuments_FromSdCard(com.android.documentsui.FileCopyUiTest):\njunit.framework.AssertionFailedError: Cannot set virtual SD Card\n\tat junit.framework.Assert.fail(Assert.java:50)\n\tat junit.framework.Assert.assertTrue(Assert.java:20)\n\tat com.android.documentsui.FileCopyUiTest.setUp(FileCopyUiTest.java:157)\n\tat junit.framework.TestCase.runBare(TestCase.java:132)\n\tat junit.framework.TestResult$1.protect(TestResult.java:115)\n\tat android.support.test.internal.runner.junit3.AndroidTestResult.runProtected(AndroidTestResult.java:77)\n\tat junit.framework.TestResult.run(TestResult.java:118)\n\tat android.support.test.internal.runner.junit3.AndroidTestResult.run(AndroidTestResult.java:55)\n\tat junit.framework.TestCase.run(TestCase.java:124)\n\tat android.support.test.internal.runner.junit3.NonLeakyTestSuite$NonLeakyTest.run(NonLeakyTestSuite.java:63)\n\tat android.support.test.internal.runner.junit3.AndroidTestSuite$2.run(AndroidTestSuite.java:111)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:457)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)\n\tat java.lang.Thread.run(Thread.java:764",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -366,6 +401,24 @@
       "side": 1,
       "message": "Thank you for the clarification and good suggestion. Understood. Perhaps it\u0027s more like a Archive test to be belong to ArchiveUiTest.java.\nAnyway, we\u0027re happy to add the test because as we have a plan to add file move scenario to SD Card if this fundamental commit is accepted.\nIf it\u0027s fine for you, we\u0027d like to do it in the next CL after this large CL with with SD Card setup is once accepted.",
       "parentUuid": "b031d0bf_48893d6b",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12cc1410_2451ce62",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-02-01T23:07:59Z",
+      "side": 1,
+      "message": "Totally fine.",
+      "parentUuid": "d7fc5a0d_6d0a86b0",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
