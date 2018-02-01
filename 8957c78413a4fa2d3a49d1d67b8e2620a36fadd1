@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "8fdcdf5e_181aa1f1",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T10:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d7b2d6a_8a559994",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c749b9f_b486823a",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
@@ -65,6 +83,24 @@
       "writtenOn": "2018-01-31T21:43:41Z",
       "side": 1,
       "message": "This should never happen, right? If so I think it would be better to just call fail(\"Can\u0027t find advanced storage menu item.\")... like you do below with notification access.",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9195e037_54b59393",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T10:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c749b9f_b486823a",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -88,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "83883099_55a41b09",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T10:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9e01b13_4b194d95",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c775b57_5219220f",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
@@ -99,6 +153,24 @@
       "writtenOn": "2018-01-31T21:43:41Z",
       "side": 1,
       "message": "Pull this up to setUp. E.g.:\n\n\n        // If SD Card is not found, set Virtual SD Card\n        if (mSdCardRoot \u003d\u003d null) {\n            mIsVirtualSdCard \u003d setVirtualSdCard();\n            assertTrue(\"Cannot set virtual SD Card\", mIsVirtualSdCard);\n            initStorageRootInfo();\n        }",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9902f47_688b6af9",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T10:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c775b57_5219220f",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -122,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "e2505178_82f2db2e",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T10:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a13f665_b1a542ba",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ab23837_d1fb7d9b",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
@@ -133,6 +223,24 @@
       "writtenOn": "2018-01-31T21:43:41Z",
       "side": 1,
       "message": "Either drop the unlikely isUsb block entirely, or make it this a fail?",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff1969c0_d68ba2e5",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T10:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ab23837_d1fb7d9b",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -168,6 +276,24 @@
       "side": 1,
       "message": "Do you mean that the new test case copy some files in uitest_images.zip out of the zip file?",
       "parentUuid": "03813966_336fcd4d",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5c94aa2_3e10efee",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-01T10:38:05Z",
+      "side": 1,
+      "message": "Still open item in patch set#6.\nWould like to clarify the intention before we add the test.",
+      "parentUuid": "f5de7d98_eb2234ef",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
