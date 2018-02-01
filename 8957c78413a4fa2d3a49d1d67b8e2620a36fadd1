@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f1f6a98e_fdfe6c19",
+        "filename": "tests/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-02-01T21:29:27Z",
+      "side": 1,
+      "message": "Oh. Then I\u0027m confused. What does bots.main.clickDisplayedItem(ERASE_AND_FORMAT); do?",
+      "parentUuid": "9cce152b_4a0f2b2e",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d7b2d6a_8a559994",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 5
@@ -294,6 +312,24 @@
       "side": 1,
       "message": "Still open item in patch set#6.\nWould like to clarify the intention before we add the test.",
       "parentUuid": "f5de7d98_eb2234ef",
+      "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b031d0bf_48893d6b",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-02-01T21:29:27Z",
+      "side": 1,
+      "message": "Yes, exactly. There\u0027s a zip file in resources (you added one in this change). DocumentsUI supports browsing zip files and copying files out of them (like any other folder), and your test is about exercising more real-world scenarios. So during setup when you\u0027re copying files out of the zip, you can also copy the zip file itself. Then add a new test method that browses into the Zip and copies some (or all) of the files out of the zip using DocumentsUI.\n\nI\u0027m not asserting that *you must to do this*, just suggesting it would be a nice addition to this change.",
+      "parentUuid": "d5c94aa2_3e10efee",
       "revId": "8957c78413a4fa2d3a49d1d67b8e2620a36fadd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
