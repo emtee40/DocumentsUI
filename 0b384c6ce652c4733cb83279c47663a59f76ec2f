@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "162a41a7_054b2486",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-02-07T00:31:32Z",
+      "side": 1,
+      "message": "Might this be racey? Access to mSetVirtualDiskFinished isn\u0027t synchronized.",
+      "revId": "0b384c6ce652c4733cb83279c47663a59f76ec2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
