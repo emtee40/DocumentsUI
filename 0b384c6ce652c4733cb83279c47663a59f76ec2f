@@ -34,6 +34,24 @@
       "revId": "0b384c6ce652c4733cb83279c47663a59f76ec2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "413f7a76_efbe43a4",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-16T03:53:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a8e27ba_40d964d5",
+      "revId": "0b384c6ce652c4733cb83279c47663a59f76ec2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
