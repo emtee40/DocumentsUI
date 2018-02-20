@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cf67cf8_80e3e1fd",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-02-20T19:46:03Z",
+      "side": 1,
+      "message": "Looks like you can use replaceValues to achive the same in a single line.\n\nAlso, this might not be a complete fix (see lines 213 and 230). Can you update those uses too?\n\nIf you wanted to go all out, this class would really benefit from a test. The putAll contact isn\u0027t necessarily obvious to the casual engineer, so this could easily regress without a test.",
+      "revId": "86891534aa71c81089a99a3263003fcd6a5ee162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
