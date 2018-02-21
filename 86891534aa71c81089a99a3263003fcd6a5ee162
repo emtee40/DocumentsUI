@@ -16,6 +16,24 @@
       "revId": "86891534aa71c81089a99a3263003fcd6a5ee162",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d688db2_90e5299c",
+        "filename": "src/com/android/documentsui/roots/ProvidersCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-02-21T01:13:38Z",
+      "side": 1,
+      "message": "\u003e Looks like you can use replaceValues to achive the same in a single line.\n\nThank you for the suggestion. Will do.\n\n\u003e Also, this might not be a complete fix (see lines 213 and 230). Can you update those uses too?\n\nAs I understood, L213 and 230 are only used for loading unloaded authority, therefore the issue won\u0027t happen for now. But I have no objection to apply the same change to these parts for the safe.",
+      "parentUuid": "8cf67cf8_80e3e1fd",
+      "revId": "86891534aa71c81089a99a3263003fcd6a5ee162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
