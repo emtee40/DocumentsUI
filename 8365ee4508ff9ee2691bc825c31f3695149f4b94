@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0112dbee_7e35aef3",
+        "filename": "tests/common/com/android/documentsui/DocumentsProviderHelper.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-21T20:50:57Z",
+      "side": 1,
+      "message": "getRootsList is sufficient, \"Info\" isn\u0027t included in any other method names in this class.",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7923fb6_12e0721a",
+        "filename": "tests/common/com/android/documentsui/bots/NotificationsBot.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-21T20:50:57Z",
+      "side": 1,
+      "message": "I can see that this gets cleaned up in tests, but I don\u0027t see how. Can you add a note here explaining where cleanup happens?",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46f93ec_97ef3cdf",
+        "filename": "tests/common/com/android/documentsui/bots/NotificationsBot.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-21T20:50:57Z",
+      "side": 1,
+      "message": "appName \u003e label",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63deaf8e_792691c4",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-21T20:50:57Z",
+      "side": 1,
+      "message": "When I patch in this change to my local dev build it is failing to enable notifications because \"ALLOW\" is now \"Allow\".\n\nThe \"Allow\" string can vary from vendor to vendor. That\u0027s why the tests fail for me and not for you. So it probably makes sense to load the string from test resources instead of rely on a static string. Then the test resources can be overlayed with vendor specific values.\n\nAlternately, for a quick fix, you could make the UiSelector be case insensitive (with textMatches and a regexp).\n\nI think something like this will work (in NotificationsBot):\n\nnew UiSelector().textMatches(\"(?i)\" + label)",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ec6df6_5718a047",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-21T20:50:57Z",
+      "side": 1,
+      "message": "mStayOnValue \u003e mPreTestStayAwakeValue ?",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f23eba1e_f06a0d54",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-21T20:50:57Z",
+      "side": 1,
+      "message": "This is hiding important failure details on the failure. Just let the exception bubble up. The test will still fail :)",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a773140_594d5283",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-21T20:50:57Z",
+      "side": 1,
+      "message": "At least print this as a warning. Noise might make someone investigate if it starts failing.",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
