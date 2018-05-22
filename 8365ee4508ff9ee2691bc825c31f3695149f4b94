@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "ac83da0e_dc716e0e",
+        "filename": "tests/common/com/android/documentsui/bots/NotificationsBot.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-22T16:11:03Z",
+      "side": 1,
+      "message": "Oh, I get it. I think I was expecting a boolean arg for enabled/disabled.\n\nOptional: Consider hiding the labels in this class, then changing the method signature to:\n\nsetNotificationAccess(Activity activity, String appName, boolean enabled)?\n\nI don\u0027t see any benefit to having callers known about the labels.",
+      "parentUuid": "f7baf440_a1457dda",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c46f93ec_97ef3cdf",
         "filename": "tests/common/com/android/documentsui/bots/NotificationsBot.java",
         "patchSetId": 10
@@ -104,6 +122,40 @@
       "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31a0dcdf_31a779f8",
+        "filename": "tests/common/com/android/documentsui/services/TestNotificationService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-22T16:11:03Z",
+      "side": 1,
+      "message": "CANCEL_LABEL?",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64217fd7_71afd224",
+        "filename": "tests/common/com/android/documentsui/services/TestNotificationService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-22T16:11:03Z",
+      "side": 1,
+      "message": "Consider making this case insensitive too for the same reason as the notifications labels. Could vary across vendors.",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -206,6 +258,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f23eba1e_f06a0d54",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d485187_9462d9a7",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-05-22T16:11:03Z",
+      "side": 1,
+      "message": "I might take this one back. If we let the exception bubble up, then I think tearDown won\u0027t run. Can you confirm. If that\u0027s the case, then maybe just log the stack trace before calling fail.\n\nSorry about the flip flop on that.",
+      "parentUuid": "e711c6db_efff6139",
       "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
