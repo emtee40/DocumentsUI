@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c6f35a5d_eaf1e049",
+        "filename": "tests/common/com/android/documentsui/DocumentsProviderHelper.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-05-22T13:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0112dbee_7e35aef3",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7923fb6_12e0721a",
         "filename": "tests/common/com/android/documentsui/bots/NotificationsBot.java",
         "patchSetId": 10
@@ -30,6 +48,24 @@
       "writtenOn": "2018-05-21T20:50:57Z",
       "side": 1,
       "message": "I can see that this gets cleaned up in tests, but I don\u0027t see how. Can you add a note here explaining where cleanup happens?",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7baf440_a1457dda",
+        "filename": "tests/common/com/android/documentsui/bots/NotificationsBot.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-05-22T13:54:15Z",
+      "side": 1,
+      "message": "Cleaning notification access setting is done in FileCopyUiTest#tearDown() by calling this method with the following parameters.\nbots.notifications.setNotificationAccess(\n                        getActivity(), ACCESS_APP_NAME, trun_off_string);\n\nAre you expecting to add note that as comment here?",
+      "parentUuid": "a7923fb6_12e0721a",
       "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3e9a3add_6b8fe0fc",
+        "filename": "tests/common/com/android/documentsui/bots/NotificationsBot.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-05-22T13:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c46f93ec_97ef3cdf",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63deaf8e_792691c4",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 10
@@ -67,6 +121,24 @@
       "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6afccb57_4ed471ce",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-05-22T13:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63deaf8e_792691c4",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b07f04d4_21f9d920",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-05-22T13:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07ec6df6_5718a047",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f23eba1e_f06a0d54",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 10
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "e711c6db_efff6139",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-05-22T13:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f23eba1e_f06a0d54",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a773140_594d5283",
         "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
         "patchSetId": 10
@@ -118,6 +226,24 @@
       "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82c4aa5b_f0c6e66f",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-05-22T13:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a773140_594d5283",
+      "revId": "8365ee4508ff9ee2691bc825c31f3695149f4b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
