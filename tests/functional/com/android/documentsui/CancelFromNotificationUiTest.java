@@ -21,7 +21,6 @@ import static com.android.documentsui.StubProvider.ROOT_0_ID;
 import static com.android.documentsui.StubProvider.ROOT_1_ID;
 
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -53,10 +52,6 @@ public class CancelFromNotificationUiTest extends ActivityTest<FilesActivity> {
     private static final int BUFFER_SIZE = 10 * 1024 * 1024;
 
     private static final String ACCESS_APP_NAME = "DocumentsUI Tests";
-
-    private static final String COPY = "Copy to…";
-
-    private static final String MOVE = "Move to…";
 
     private static final int WAIT_TIME_SECONDS = 60;
 
@@ -164,7 +159,7 @@ public class CancelFromNotificationUiTest extends ActivityTest<FilesActivity> {
         bots.directory.selectDocument(TARGET_FILE, 1);
         device.waitForIdle();
 
-        bots.main.clickToolbarOverflowItem(COPY);
+        bots.main.clickToolbarOverflowItem(context.getResources().getString(R.string.menu_copy));
         device.waitForIdle();
 
         bots.main.clickDialogCancelButton();
@@ -181,7 +176,7 @@ public class CancelFromNotificationUiTest extends ActivityTest<FilesActivity> {
         bots.directory.selectDocument(TARGET_FILE, 1);
         device.waitForIdle();
 
-        bots.main.clickToolbarOverflowItem(COPY);
+        bots.main.clickToolbarOverflowItem(context.getResources().getString(R.string.menu_copy));
         device.waitForIdle();
 
         bots.roots.openRoot(ROOT_1_ID);
@@ -214,7 +209,7 @@ public class CancelFromNotificationUiTest extends ActivityTest<FilesActivity> {
         bots.directory.selectDocument(TARGET_FILE, 1);
         device.waitForIdle();
 
-        bots.main.clickToolbarOverflowItem(MOVE);
+        bots.main.clickToolbarOverflowItem(context.getResources().getString(R.string.menu_move));
         device.waitForIdle();
 
         bots.main.clickDialogCancelButton();
@@ -231,7 +226,7 @@ public class CancelFromNotificationUiTest extends ActivityTest<FilesActivity> {
         bots.directory.selectDocument(TARGET_FILE, 1);
         device.waitForIdle();
 
-        bots.main.clickToolbarOverflowItem(MOVE);
+        bots.main.clickToolbarOverflowItem(context.getResources().getString(R.string.menu_move));
         device.waitForIdle();
 
         bots.roots.openRoot(ROOT_1_ID);
