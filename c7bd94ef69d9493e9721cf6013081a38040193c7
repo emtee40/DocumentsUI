@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ee35b0_356e58d2",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1122613
+      },
+      "writtenOn": "2018-06-06T22:27:49Z",
+      "side": 1,
+      "message": "Could you retrieve this from the context.getPackageName instead?",
+      "range": {
+        "startLine": 60,
+        "startChar": 48,
+        "endLine": 60,
+        "endChar": 77
+      },
+      "revId": "c7bd94ef69d9493e9721cf6013081a38040193c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13ecc329_56f6e3cc",
+        "filename": "tests/functional/com/android/documentsui/FileCopyUiTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1122613
+      },
+      "writtenOn": "2018-06-06T22:27:49Z",
+      "side": 1,
+      "message": "I believe you can retrieve this from PackageManager#getApplicationLabel(context.getApplicationInfo()) instead.\n\nSame comment for other test file.",
+      "range": {
+        "startLine": 64,
+        "startChar": 51,
+        "endLine": 64,
+        "endChar": 68
+      },
+      "revId": "c7bd94ef69d9493e9721cf6013081a38040193c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
