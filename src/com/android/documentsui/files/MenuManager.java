@@ -30,6 +30,7 @@ import android.view.View;
 
 import com.android.documentsui.R;
 import com.android.documentsui.MenuManager.SelectionDetails;
+import com.android.documentsui.Model;
 import com.android.documentsui.base.DocumentInfo;
 import com.android.documentsui.base.Features;
 import com.android.documentsui.base.Lookup;
@@ -48,6 +49,7 @@ public final class MenuManager extends com.android.documentsui.MenuManager {
     private final SelectionHelper mSelectionManager;
     private final Lookup<String, Uri> mUriLookup;
     private final Lookup<String, String> mAppNameLookup;
+    private final Model mModel;
 
     public MenuManager(
             Features features,
@@ -57,7 +59,8 @@ public final class MenuManager extends com.android.documentsui.MenuManager {
             Context context,
             SelectionHelper selectionManager,
             Lookup<String, String> appNameLookup,
-            Lookup<String, Uri> uriLookup) {
+            Lookup<String, Uri> uriLookup,
+            Model model) {
 
         super(searchManager, displayState, dirDetails);
 
@@ -66,6 +69,7 @@ public final class MenuManager extends com.android.documentsui.MenuManager {
         mSelectionManager = selectionManager;
         mAppNameLookup = appNameLookup;
         mUriLookup = uriLookup;
+        mModel = model;
     }
 
     @Override
@@ -272,7 +276,7 @@ public final class MenuManager extends com.android.documentsui.MenuManager {
         inspect.setVisible(visible);
         // use a null check w/ peek instead of isEmpty since
         // DocumentStack accepts null values (not sure why).
-        inspect.setEnabled(visible && mState.stack.peek() != null);
+        inspect.setEnabled(visible && mState.stack.peek() != null && mModel.doc != null);
     }
 
     @Override

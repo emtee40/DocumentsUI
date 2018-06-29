@@ -26,6 +26,7 @@ import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.AndroidTestCase;
 
+import com.android.documentsui.Model;
 import com.android.documentsui.R;
 import com.android.documentsui.base.DocumentInfo;
 import com.android.documentsui.base.RootInfo;
@@ -113,6 +114,7 @@ public final class MenuManagerTest {
     private MenuManager mgr;
     private TestActivity activity = TestActivity.create(TestEnv.create());
     private SelectionHelper selectionManager;
+    private Model model = new Model(features);
 
     @Before
     public void setUp() {
@@ -187,11 +189,13 @@ public final class MenuManagerTest {
                 activity,
                 selectionManager,
                 this::getApplicationNameFromAuthority,
-                this::getUriFromModelId);
+                this::getUriFromModelId,
+                model);
 
         testRootInfo = new RootInfo();
         testDocInfo = new DocumentInfo();
         state.stack.push(testDocInfo);
+        model.doc = testDocInfo;
     }
 
     private Uri getUriFromModelId(String id) {
@@ -453,6 +457,16 @@ public final class MenuManagerTest {
         features.inspector = true;
         state.stack.reset();
         state.stack.push(null);
+        mgr.updateOptionMenu(testMenu);
+
+        optionInspector.assertVisible();
+        optionInspector.assertDisabled();
+    }
+
+    @Test
+    public void testOptionMenu_Inspector_DisabledForBrokenModelDirectory() {
+        features.inspector = true;
+        model.doc = null;
         mgr.updateOptionMenu(testMenu);
 
         optionInspector.assertVisible();
