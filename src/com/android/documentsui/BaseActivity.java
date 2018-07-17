@@ -670,6 +670,10 @@ public abstract class BaseActivity
         }
     }
 
+    public void reSerch() {
+        mSearchManager.reSerch();
+    }
+
     @VisibleForTesting
     protected interface EventListener {
         /**
