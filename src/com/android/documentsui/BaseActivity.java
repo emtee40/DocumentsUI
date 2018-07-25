@@ -603,6 +603,15 @@ public abstract class BaseActivity
     }
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(KeyEvent.KEYCODE_SEARCH == keyCode) {
+            mSearchManager.openSearch();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mInjector.actions.onActivityResult(requestCode, resultCode, data);
     }

@@ -199,6 +199,13 @@ public class SearchViewManager implements
         mMenuItem.setVisible(supportsSearch);
     }
 
+    public void openSearch() {
+        if(mMenuItem.isVisible()){
+            mMenuItem.expandActionView();
+            mSearchView.setIconified(false);
+        }
+    }
+
     /**
      * Cancels current search operation. Triggers clearing and collapsing the SearchView.
      *
