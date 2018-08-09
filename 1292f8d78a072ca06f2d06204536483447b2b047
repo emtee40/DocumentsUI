@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "429434a2_0ea70b11",
+        "filename": "src/com/android/documentsui/dirlist/DirectoryFragment.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-08-09T17:59:28Z",
+      "side": 1,
+      "message": "Seems like it would be reasonable to invalidate the options menu after any update. Move this to last line of method?",
+      "revId": "1292f8d78a072ca06f2d06204536483447b2b047",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e65acb7_aa7e54a2",
+        "filename": "src/com/android/documentsui/files/MenuManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1086769
+      },
+      "writtenOn": "2018-08-09T17:59:28Z",
+      "side": 1,
+      "message": "Suggest you push this (and maybe the logic that checks the stack too) into a nice method in DirectoryDetails. Hide the implementation from MenuManager, and help keep testing and test setup simple.\n\nNot sure what to name it. DirectoryDetails.canInspectDirectory? Or maybe a more fundamental name like DirectoryDetails.inValidDirectory()?",
+      "revId": "1292f8d78a072ca06f2d06204536483447b2b047",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
