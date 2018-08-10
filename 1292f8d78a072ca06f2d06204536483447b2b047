@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c3868c3b_3d894ce3",
+        "filename": "src/com/android/documentsui/dirlist/DirectoryFragment.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-08-10T13:31:18Z",
+      "side": 1,
+      "message": "After further investigation and verification, I found a problem.\n\nWhen user press search button in a directory, the search automatically starts (even before entering the text) and that cause model update. If invalidateOptionsMenu() is invoked, the search mode is released.\nTherefore, I think the invalidateOptionsMenu() should be invoked only when the model data is invalid.",
+      "parentUuid": "429434a2_0ea70b11",
+      "revId": "1292f8d78a072ca06f2d06204536483447b2b047",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e65acb7_aa7e54a2",
         "filename": "src/com/android/documentsui/files/MenuManager.java",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "1292f8d78a072ca06f2d06204536483447b2b047",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce27cb8a_6d0a6e08",
+        "filename": "src/com/android/documentsui/files/MenuManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1233205
+      },
+      "writtenOn": "2018-08-10T13:31:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e65acb7_aa7e54a2",
+      "revId": "1292f8d78a072ca06f2d06204536483447b2b047",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
