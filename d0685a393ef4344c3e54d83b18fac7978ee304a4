@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4141893a_5e96898a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2018-08-10T00:08:02Z",
+      "side": 1,
+      "message": "Please make sure the it doesn\u0027t break existing tests by running atest CtsAppSecurityHostTestCases:ScopedDirectoryAccessTest, then use:\n\nTest: manual \nTest: atest CtsAppSecurityHostTestCases:ScopedDirectoryAccessTest",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "d0685a393ef4344c3e54d83b18fac7978ee304a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
