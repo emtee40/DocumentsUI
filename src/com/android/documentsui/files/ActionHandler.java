@@ -150,6 +150,7 @@ public class ActionHandler<T extends Activity & Addons> extends AbstractActionHa
         Metrics.logUserAction(mActivity, Metrics.USER_ACTION_SETTINGS);
         final Intent intent = new Intent(DocumentsContract.ACTION_DOCUMENT_ROOT_SETTINGS);
         intent.setDataAndType(root.getUri(), DocumentsContract.Root.MIME_TYPE_ITEM);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mActivity.startActivity(intent);
     }
 
