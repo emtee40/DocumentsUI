@@ -266,9 +266,14 @@ class CopyJob extends ResolvedResourcesJob {
         if (isCanceled()) {
             return false;
         }
-
+        if(true != mIsSdcardJob){
+            mIsSdcardJob = this.isSdCardJob(mDstInfo);
+            Log.d(TAG, "Dest documents  mIsSdcardJob " + mIsSdcardJob);
+        }
+        Log.d(TAG, "mIsSdcardJob " + mIsSdcardJob);
         return checkSpace();
     }
+
 
     @Override
     void start() {

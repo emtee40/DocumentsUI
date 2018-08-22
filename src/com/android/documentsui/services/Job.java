@@ -94,6 +94,7 @@ abstract public class Job implements Runnable {
     final String id;
     final DocumentStack stack;
 
+    boolean mIsSdcardJob;
     final UrisSupplier mResourceUris;
 
     int failureCount = 0;
@@ -153,6 +154,7 @@ abstract public class Job implements Runnable {
             boolean result = setUp();
             if (result && !isCanceled()) {
                 mState = STATE_SET_UP;
+                listener.onSetUp(this);
                 start();
             }
         } catch (RuntimeException e) {
@@ -365,6 +367,7 @@ abstract public class Job implements Runnable {
      */
     interface Listener {
         void onStart(Job job);
+        void onSetUp(Job job);
         void onFinished(Job job);
     }
 }

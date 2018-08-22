@@ -31,6 +31,10 @@ import android.os.UserManager;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.android.documentsui.R;
 import com.android.documentsui.base.Features;
 
@@ -133,7 +137,7 @@ public class FileOperationService extends Service implements Job.Listener {
     private PowerManager.WakeLock mWakeLock;  // the wake lock, if held.
 
     private int mLastServiceId;
-
+    private BroadcastReceiver mBroadcastReceiver;
     @Override
     public void onCreate() {
         // Allow tests to pre-set these with test doubles.
@@ -163,6 +167,21 @@ public class FileOperationService extends Service implements Job.Listener {
 
         if (DEBUG) Log.d(TAG, "Created.");
         mPowerManager = getSystemService(PowerManager.class);
+
+        mBroadcastReceiver = new SdBroadcastReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_MEDIA_EJECT);
+        filter.addDataScheme("file");
+
+        this.registerReceiver(mBroadcastReceiver, filter);
+    }
+
+    private  class SdBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(final Context context, final Intent intent) {
+            Log.d(TAG, "broadcast receive " + intent.toString());
+            cancelSdCardJob();
+        }
     }
 
     private void setUpNotificationChannel() {
@@ -192,7 +211,7 @@ public class FileOperationService extends Service implements Job.Listener {
         executor = null;
         deletionExecutor = null;
         handler = null;
-
+        this.unregisterReceiver(mBroadcastReceiver);
         if (DEBUG) Log.d(TAG, "Destroyed.");
     }
 
@@ -219,6 +238,31 @@ public class FileOperationService extends Service implements Job.Listener {
         return START_NOT_STICKY;
     }
 
+    private void cancelAllJob() {
+        synchronized (mJobs) {
+            for (String jobId : mJobs.keySet()) {
+                JobRecord record = mJobs.get(jobId);
+                Log.d(TAG, "cancelAllJob with job: " + jobId);
+                if (record != null) {
+                    record.job.cancel();
+                }
+                notificationManager.cancel(jobId, NOTIFICATION_ID_PROGRESS);
+            }
+        }
+    }
+
+    private void cancelSdCardJob() {
+        synchronized (mJobs) {
+            for (String jobId : mJobs.keySet()) {
+                JobRecord record = mJobs.get(jobId);
+                if (record != null && record.isSdCardJob) {
+                    Log.d(TAG, "cancel SD card Job with job: " + jobId );
+                    record.job.cancel();
+                }
+                notificationManager.cancel(jobId, NOTIFICATION_ID_PROGRESS);
+            }
+        }
+    }
     private void handleOperation(String jobId, FileOperation operation) {
         synchronized (mJobs) {
             if (mWakeLock == null) {
@@ -238,7 +282,7 @@ public class FileOperationService extends Service implements Job.Listener {
             }
 
             assert (job != null);
-            if (DEBUG) Log.d(TAG, "Scheduling job " + job.id + ".");
+            if (DEBUG) Log.d(TAG, "Scheduling job " + job.id  );
             Future<?> future = getExecutorService(operation.getOpType()).submit(job);
             mJobs.put(jobId, new JobRecord(job, future));
 
@@ -386,6 +430,15 @@ public class FileOperationService extends Service implements Job.Listener {
         }
     }
 
+    @Override
+    public void onSetUp(Job job) {
+       synchronized (mJobs) {
+          Log.d(TAG, "on set up isSdCard " + job.mIsSdcardJob);
+          mJobs.get(job.id).isSdCardJob = job.mIsSdcardJob; 
+       } 
+    }
+
+
     @GuardedBy("mJobs")
     private void updateForegroundState(Job job) {
         Job candidate = mJobs.isEmpty() ? null : mJobs.values().iterator().next().job;
@@ -438,6 +491,7 @@ public class FileOperationService extends Service implements Job.Listener {
     private static final class JobRecord {
         private final Job job;
         private final Future<?> future;
+        private boolean isSdCardJob;
 
         public JobRecord(Job job, Future<?> future) {
             this.job = job;

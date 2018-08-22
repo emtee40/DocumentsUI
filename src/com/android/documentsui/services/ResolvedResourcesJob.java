@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
 import android.os.RemoteException;
+import android.os.Environment;
 import android.util.Log;
 
 import com.android.documentsui.archives.ArchivesProvider;
@@ -31,9 +32,12 @@ import com.android.documentsui.clipping.UrisSupplier;
 import com.android.documentsui.services.FileOperationService.OpType;
 
 import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
+import com.android.documentsui.PlugInDrm.DocumentsUIPlugInDrm;
 
 /**
  * Abstract job that resolves all resource URIs into mResolvedDocs. This provides
@@ -89,8 +93,27 @@ public abstract class ResolvedResourcesJob extends Job {
                 Log.e(TAG, "Failed to load some documents. Processing loaded documents only.");
             }
         }
-
+  
+        for( Iterator  docs = mResolvedDocs.listIterator(); docs.hasNext();){
+            if(isSdCardJob((DocumentInfo)docs.next())) {
+                mIsSdcardJob = true;
+                Log.d(TAG, "Job operates on SD card");
+                break;
+           }
+        }
         return true;
+    }
+
+    String getDocPath(DocumentInfo doc) {
+        return DocumentsUIPlugInDrm.getInstance().getDrmPath(appContext, doc.derivedUri);
+    }
+
+    boolean isSdCardJob(DocumentInfo doc) {
+        String path = getDocPath(doc);
+        File file = new File(path);
+        Boolean isSd = Environment.isExternalStorageRemovable(file);
+        Log.d(TAG, "File " + path + " isSdCardJob" + isSd);
+        return isSd;
     }
 
     @Override
