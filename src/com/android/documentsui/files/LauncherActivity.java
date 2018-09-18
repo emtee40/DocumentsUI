@@ -23,6 +23,7 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.AppTask;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
@@ -50,6 +51,9 @@ public class LauncherActivity extends Activity {
     private static final String LAUNCH_CONTROL_AUTHORITY = "com.android.documentsui.launchControl";
     private static final String TAG = "LauncherActivity";
 
+    private static final String CONTENT_URI =
+            "content://com.android.externalstorage.documents/root/primary";
+
     // Array of boolean extras that should be copied when creating new launch intents.
     // Missing intents will be ignored.
     private static final String[] PERSISTENT_BOOLEAN_EXTRAS = {
@@ -60,9 +64,33 @@ public class LauncherActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        launch();
+        boolean isLaunchWithDeviceRoot = false;
+        try {
+            isLaunchWithDeviceRoot =
+                    getApplicationContext().getResources().getBoolean(
+                    R.bool.config_launch_with_device_root);
+        } catch (Resources.NotFoundException e) {
+            // Ignore
+        }
+
+        if (isLaunchWithDeviceRoot) {
+            launchWithDeviceRoot();
+        } else {
+            launch();
+        }
 
         finish();
+    }
+
+    private void launchWithDeviceRoot() {
+        Intent intent = new Intent(this, FilesActivity.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setData(Uri.parse(CONTENT_URI));
+        intent.putExtra(DocumentsContract.EXTRA_SHOW_ADVANCED, true);
+
+        startActivity(intent);
     }
 
     private void launch() {
