@@ -60,4 +60,7 @@
     <!-- This option allows us to hide the Files app icon from launcher on Android Go device.
     Android Go device will have Files Go app for file management. -->
     <bool name="is_launcher_enabled">true</bool>
+
+    <!-- Indicates if launch with internal storage as default or not. -->
+    <bool name="config_launch_with_device_root">false</bool>
 </resources>
