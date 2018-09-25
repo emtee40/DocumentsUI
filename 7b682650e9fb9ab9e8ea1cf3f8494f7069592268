@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea3f0cca_50142bb2",
+        "filename": "res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1319697
+      },
+      "writtenOn": "2018-09-25T07:58:26Z",
+      "side": 1,
+      "message": "Maybe you can overlay(Runtime Resource Overlay) default_root_url with \"content://com.android.externalstorage.documents/root/primary\" and",
+      "revId": "7b682650e9fb9ab9e8ea1cf3f8494f7069592268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e8a4bcb_21dbce05",
+        "filename": "res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1319697
+      },
+      "writtenOn": "2018-09-25T07:58:26Z",
+      "side": 1,
+      "message": "and overlay config_default_show_device_root\" to true",
+      "revId": "7b682650e9fb9ab9e8ea1cf3f8494f7069592268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
