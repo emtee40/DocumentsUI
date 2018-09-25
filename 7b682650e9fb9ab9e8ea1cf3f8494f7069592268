@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d947cb7e_29c42f99",
+        "filename": "res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1167663
+      },
+      "writtenOn": "2018-09-25T16:21:15Z",
+      "side": 1,
+      "message": "Thanks for the comment. I will check it if it can meet our requirement and get back to you",
+      "parentUuid": "ea3f0cca_50142bb2",
+      "revId": "7b682650e9fb9ab9e8ea1cf3f8494f7069592268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e8a4bcb_21dbce05",
         "filename": "res/values/config.xml",
         "patchSetId": 2
