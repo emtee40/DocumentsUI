@@ -233,7 +233,14 @@ public class RootsFragment extends Fragment {
                 mAdapter = new RootsAdapter(activity, sortedItems, mDragListener);
                 mList.setAdapter(mAdapter);
 
-                mInjector.shortcutsUpdater.accept(roots);
+                if ((mInjector.features != null) &&
+                   (mInjector.features.isLauncherEnabled() == true)) {
+                    mInjector.shortcutsUpdater.accept(roots);
+                } else {
+                    if (DEBUG) {
+                        Log.d(TAG, "Launcher is disabled");
+                    }
+                }
                 onCurrentRootChanged();
             }
 
