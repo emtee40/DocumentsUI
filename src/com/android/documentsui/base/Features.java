@@ -47,7 +47,10 @@ public interface Features {
     boolean isRemoteActionsEnabled();
     boolean isSystemKeyboardNavigationEnabled();
     boolean isVirtualFilesSharingEnabled();
-
+    /**
+    * Returns if Launcher is enabled or disabled.
+    */
+    boolean isLauncherEnabled();
 
     /**
      * Call this to force-enable any particular feature known by this instance.
@@ -167,6 +170,15 @@ public interface Features {
         @Override
         public boolean isVirtualFilesSharingEnabled() {
             return isEnabled(R.bool.feature_virtual_files_sharing);
+        }
+
+        /**
+        * @ return if Launcher is enabled or disabled.
+        *
+        */
+        @Override
+        public boolean isLauncherEnabled() {
+            return isEnabled(R.bool.is_launcher_enabled);
         }
     }
 }

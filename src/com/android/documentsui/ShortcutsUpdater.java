@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package com.android.documentsui;
+import static com.android.documentsui.base.SharedMinimal.DEBUG;
 
 import android.annotation.DrawableRes;
 import android.content.Context;
@@ -21,8 +22,10 @@ import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
+import android.util.Log;
 
 import com.android.documentsui.R;
+import com.android.documentsui.base.Features;
 import com.android.documentsui.base.Providers;
 import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.files.FilesActivity;
@@ -39,15 +42,26 @@ import java.util.Map;
  */
 public final class ShortcutsUpdater {
 
+    private static final String TAG = "ShortcutsUpdater";
+
     private final ScopedPreferences mPrefs;
     private final Context mContext;
+    private final Features mFeatures;
 
     public ShortcutsUpdater(Context context, ScopedPreferences prefs) {
         mContext = context;
         mPrefs = prefs;
+        mFeatures = Features.create(mContext);
     }
 
     public void update(Collection<RootInfo> roots) {
+
+        if ((mFeatures != null) && (mFeatures.isLauncherEnabled() == false)) {
+            if (DEBUG) {
+                Log.d(TAG, "Launcher is disabled");
+            }
+            return;
+        }
         ShortcutManager mgr = mContext.getSystemService(ShortcutManager.class);
 
         Map<String, ShortcutInfo> existing = getPinnedShortcuts(mgr);
