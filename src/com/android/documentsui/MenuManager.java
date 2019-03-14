@@ -353,6 +353,8 @@ public abstract class MenuManager {
         boolean canOpenWith();
 
         boolean canViewInOwner();
+
+        boolean canForward();
     }
 
     public static class DirectoryDetails {

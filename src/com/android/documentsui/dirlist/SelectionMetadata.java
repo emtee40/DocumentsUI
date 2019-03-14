@@ -28,6 +28,13 @@ import com.android.documentsui.archives.ArchivesProvider;
 import com.android.documentsui.base.MimeTypes;
 import com.android.documentsui.roots.RootCursorWrapper;
 import com.android.documentsui.selection.SelectionHelper.SelectionObserver;
+import android.net.Uri;
+import com.android.documentsui.dirlist.DrmUtils;
+import com.android.documentsui.base.DocumentInfo;
+import com.android.documentsui.Model;
+import java.util.Hashtable;
+import java.util.List;
+import com.google.common.collect.Lists;
 
 import java.util.function.Function;
 
@@ -57,6 +64,9 @@ public class SelectionMetadata extends SelectionObserver
     private int mNoRenameCount = 0;
     private int mInArchiveCount = 0;
     private boolean mSupportsSettings = false;
+    private Hashtable<String, Boolean> mCanForwards = new Hashtable<String, Boolean>();
+    private List<String> mForbidenForwards = Lists.newArrayList();
+    private Model mModel;
 
     public SelectionMetadata(Function<String, Cursor> docFinder) {
         mDocFinder = docFinder;
@@ -103,6 +113,38 @@ public class SelectionMetadata extends SelectionObserver
         final String authority = getCursorString(cursor, RootCursorWrapper.COLUMN_AUTHORITY);
         if (ArchivesProvider.AUTHORITY.equals(authority)) {
             mInArchiveCount += delta;
+        }
+
+        if (DrmUtils.isHwDrmSupported()) {
+            if (mimeType != null && (mimeType.startsWith("image/")
+                    || mimeType.startsWith("audio/")
+                    || mimeType.startsWith("video/")
+                    || mimeType.equals("application/vnd.oma.drm.content"))) {
+                DocumentInfo doc = DocumentInfo.fromDirectoryCursor(cursor);
+                if (selected) {
+                    boolean canForward = true;
+                    if (doc.documentId != null && mCanForwards.containsKey(doc.documentId)) {
+                        canForward = mCanForwards.get(doc.documentId);
+                    } else {
+                        String path = mModel.getModeIdPath(doc.documentId);
+                        if (path != null) {
+                            canForward = DrmUtils.canForward(Uri.parse(path));
+                        }
+
+                        if (doc.documentId != null) {
+                            mCanForwards.put(doc.documentId, Boolean.valueOf(canForward));
+                        }
+                    }
+
+                    if (!canForward && doc.documentId != null && !mForbidenForwards.contains(doc.documentId)) {
+                        mForbidenForwards.add(doc.documentId);
+                    }
+                } else {
+                    if (doc.documentId != null && mForbidenForwards.contains(doc.documentId)) {
+                        mForbidenForwards.remove(doc.documentId);
+                    }
+                }
+            }
         }
     }
 
@@ -169,5 +211,17 @@ public class SelectionMetadata extends SelectionObserver
     @Override
     public boolean canOpenWith() {
         return size() == 1 && mDirectoryCount == 0 && mInArchiveCount == 0 && mPartialCount == 0;
+    }
+
+    @Override
+    public boolean canForward() {
+        if (DrmUtils.isHwDrmSupported()) {
+            return mForbidenForwards.isEmpty();
+        }
+        return true;
+    }
+
+    public void setModel(Model model) {
+        mModel = model;
     }
 }

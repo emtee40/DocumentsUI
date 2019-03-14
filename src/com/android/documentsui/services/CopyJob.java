@@ -143,6 +143,9 @@ class CopyJob extends ResolvedResourcesJob {
         if (mBytesRequired >= 0) {
             double completed = (double) this.mBytesCopied / mBytesRequired;
             mProgressBuilder.setProgress(100, (int) (completed * 100), false);
+            /* < DTS2017111612747 lwx400505 20171128 begin >*/
+            completed = Math.floor(completed * 100) / 100;
+            /* < DTS2017111612747 lwx400505 20171128 end >*/
             mProgressBuilder.setSubText(
                     NumberFormat.getPercentInstance().format(completed));
         } else {

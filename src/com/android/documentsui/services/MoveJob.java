@@ -146,13 +146,17 @@ final class MoveJob extends CopyJob {
         if (src.authority.equals(dest.authority) && (srcParent != null || mSrcParent != null)) {
             if ((src.flags & Document.FLAG_SUPPORTS_MOVE) != 0) {
                 try {
-                    if (DocumentsContract.moveDocument(getClient(src), src.derivedUri,
-                            srcParent != null ? srcParent.derivedUri : mSrcParent.derivedUri,
+                    /* < DTS2017080908264 liyapeng/wx400505 20170811 begin >*/
+                    if (DocumentsContract.copyDocument(getClient(src), src.derivedUri,
                             dest.derivedUri) != null) {
                         Metrics.logFileOperated(
                                 appContext, operationType, Metrics.OPMODE_PROVIDER);
+                        if (!isCanceled()) {
+                            deleteDocument(src, srcParent);
+                        }
                         return;
                     }
+                    /* < DTS2017080908264 liyapeng/wx400505 20170811 begin >*/
                 } catch (RemoteException | RuntimeException e) {
                     Metrics.logFileOperationFailure(
                             appContext, Metrics.SUBFILEOP_QUICK_MOVE, src.derivedUri);

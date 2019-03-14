@@ -278,7 +278,9 @@ public class FileOperationService extends Service implements Job.Listener {
         // Try to cancel it even if we don't have a job id...in case there is some sad
         // orphan notification.
         notificationManager.cancel(jobId, NOTIFICATION_ID_PROGRESS);
-
+        /* < DTS2017111612747 lwx400505 20171128 begin >*/
+        foregroundManager.stopForeground(true);
+        /* < DTS2017111612747 lwx400505 20171128 end >*/
         // TODO: Guarantee the job is being finalized
     }
 
@@ -397,6 +399,7 @@ public class FileOperationService extends Service implements Job.Listener {
                 if (DEBUG) Log.d(TAG, "Stop foreground");
                 // Remove the notification here just in case we're torn down before we have the
                 // chance to clean up notifications.
+                notificationManager.cancel(job.id, NOTIFICATION_ID_PROGRESS);
                 foregroundManager.stopForeground(true);
             } else {
                 if (DEBUG) Log.d(TAG, "Switch foreground job to " + candidate.id);

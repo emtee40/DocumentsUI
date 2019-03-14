@@ -49,6 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.Hashtable;
 
 /**
  * The data model for the current loaded directory.
@@ -73,6 +74,7 @@ public class Model {
     private @Nullable Cursor mCursor;
     private int mCursorCount;
     private String mIds[] = new String[0];
+    private Hashtable<String, String> mDocsIdPath;
 
     public Model(Features features) {
         mFeatures = features;
@@ -128,6 +130,7 @@ public class Model {
         mCursor = result.cursor;
         mCursorCount = mCursor.getCount();
         doc = result.doc;
+        mDocsIdPath = result.docsIdPath;
 
         updateModelData();
 
@@ -199,6 +202,10 @@ public class Model {
         return mCursor;
     }
 
+    public boolean isEmpty() {
+        return mCursorCount == 0;
+    }
+
     public boolean isLoading() {
         return mIsLoading;
     }
@@ -267,6 +274,14 @@ public class Model {
      */
     public String[] getModelIds() {
         return mIds;
+    }
+
+    public String getModeIdPath(String docId) {
+        if (mDocsIdPath != null && docId != null) {
+            return mDocsIdPath.get(docId);
+        }
+
+        return null;
     }
 
     public static class Update {
