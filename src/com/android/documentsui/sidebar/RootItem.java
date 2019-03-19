@@ -89,14 +89,12 @@ class RootItem extends Item {
         if (TextUtils.isEmpty(summaryText) && root.availableBytes >= 0) {
             summaryText = context.getString(R.string.root_available_bytes,
                     Formatter.formatFileSize(context, root.availableBytes));
-            /* < DTS2017121907972 liyapeng/wx400505 20171221 begin >*/
             if (root.isExternalStorage()) {
                 StorageManager mStorageManager = context.getSystemService(StorageManager.class);
                 long freeBytes = StorageSizeUtils.getStorageAvailableSize(mStorageManager, root.isSd(), root.isUsb());
                 summaryText = context.getString(R.string.root_available_bytes,
                         StorageSizeUtils.formatFileSize(context, freeBytes));
             }
-            /* < DTS2017121907972 liyapeng/wx400505 20171221 begin >*/
         }
 
         summary.setText(summaryText);

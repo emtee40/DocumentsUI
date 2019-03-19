@@ -1,4 +1,3 @@
-/*<DTS2016081001597 chencheng/00219147 20160819 create*/
 /*
  * Copyright (C) 2012 The Android Open Source Project
  *
@@ -55,9 +54,7 @@ public class DrmUtils {
             }
         } catch (IllegalArgumentException e) {
             // Ignore
-            /* < DTS2017110913813 liyapeng/wx400505 20171110 begin >*/
             Log.e("DocumentsUI DrmUtils", e.toString());
-            /* < DTS2017110913813 liyapeng/wx400505 20171110 end >*/
         }
         return false;
     }
@@ -71,9 +68,7 @@ public class DrmUtils {
             }
         } catch (IllegalArgumentException e) {
             // Ignore
-            /* < DTS2017110913813 liyapeng/wx400505 20171110 begin >*/
             Log.e("DocumentsUI DrmUtils", e.toString());
-            /* < DTS2017110913813 liyapeng/wx400505 20171110 end >*/
 
         }
         return UNKNOWN;
