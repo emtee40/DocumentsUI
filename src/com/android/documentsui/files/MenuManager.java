@@ -248,7 +248,8 @@ public final class MenuManager extends com.android.documentsui.MenuManager {
     protected void updateShare(MenuItem share, SelectionDetails selectionDetails) {
         boolean enabled = !selectionDetails.containsDirectories()
                 && !selectionDetails.containsPartialFiles()
-                && !selectionDetails.canExtract();
+                && !selectionDetails.canExtract()
+                && selectionDetails.canForward();
         share.setVisible(enabled);
         share.setEnabled(enabled);
     }

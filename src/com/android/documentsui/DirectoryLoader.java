@@ -45,6 +45,8 @@ import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.roots.RootCursorWrapper;
 import com.android.documentsui.selection.ContentLock;
 import com.android.documentsui.sorting.SortModel;
+import com.android.documentsui.dirlist.DrmUtils;
+import com.android.documentsui.utils.DocumentsUIUtils;
 
 import libcore.io.IoUtils;
 
@@ -148,6 +150,9 @@ public class DirectoryLoader extends AsyncTaskLoader<DirectoryResult> {
                 if (VERBOSE) Log.d(TAG, "Skipping sort of pre-sorted cursor. Booya!");
             } else {
                 cursor = mModel.sortCursor(cursor, mFileTypeLookup);
+            }
+            if (DrmUtils.isHwDrmSupported()) {
+                result.docsIdPath = DocumentsUIUtils.findPathByDocId(getContext(), cursor, mRoot.authority, mRoot.rootId);
             }
             result.cursor = cursor;
         } catch (Exception e) {

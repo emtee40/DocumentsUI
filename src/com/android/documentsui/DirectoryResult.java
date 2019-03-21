@@ -22,6 +22,7 @@ import android.database.Cursor;
 
 import com.android.documentsui.archives.ArchivesProvider;
 import com.android.documentsui.base.DocumentInfo;
+import java.util.Hashtable;
 
 import libcore.io.IoUtils;
 
@@ -30,6 +31,7 @@ public class DirectoryResult implements AutoCloseable {
     public Cursor cursor;
     public Exception exception;
     public DocumentInfo doc;
+    public Hashtable<String, String> docsIdPath;
     ContentProviderClient client;
 
     @Override

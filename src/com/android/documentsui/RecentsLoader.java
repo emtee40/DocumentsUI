@@ -59,6 +59,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import com.android.documentsui.dirlist.DrmUtils;
+import com.android.documentsui.utils.DocumentsUIUtils;
+import java.util.Hashtable;
 
 public class RecentsLoader extends AsyncTaskLoader<DirectoryResult> {
     // TODO: clean up cursor ownership so background thread doesn't traverse
@@ -152,6 +155,7 @@ public class RecentsLoader extends AsyncTaskLoader<DirectoryResult> {
         // Collect all finished tasks
         boolean allDone = true;
         int totalQuerySize = 0;
+        Hashtable<String, String> docsIdPaths = new Hashtable<String, String>();
         List<Cursor> cursors = new ArrayList<>(mTasks.size());
         for (RecentsTask task : mTasks.values()) {
             if (task.isDone()) {
@@ -174,6 +178,14 @@ public class RecentsLoader extends AsyncTaskLoader<DirectoryResult> {
                             }
                         };
                         cursors.add(filtered);
+                        if (DrmUtils.isHwDrmSupported()) {
+                            if ((task.rootIds != null) && (task.rootIds.size() > 0)) {
+                                for (String rootId : task.rootIds) {
+                                    docsIdPaths.putAll(DocumentsUIUtils.findPathByDocId(getContext(),
+                                            cursor, task.authority, rootId));
+                                }
+                            }
+                        }
                     }
 
                 } catch (InterruptedException e) {
@@ -215,6 +227,7 @@ public class RecentsLoader extends AsyncTaskLoader<DirectoryResult> {
         sorted.setExtras(extras);
 
         result.cursor = sorted;
+        result.docsIdPath = docsIdPaths;
 
         return result;
     }

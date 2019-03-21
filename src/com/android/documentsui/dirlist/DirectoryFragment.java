@@ -296,6 +296,7 @@ public class DirectoryFragment extends Fragment implements SwipeRefreshLayout.On
         }
 
         mIconHelper = new IconHelper(mActivity, MODE_GRID);
+        DrmUtils.initialize(getActivity());
 
         mAdapter = new DirectoryAddonsAdapter(
                 mAdapterEnv,
@@ -440,6 +441,7 @@ public class DirectoryFragment extends Fragment implements SwipeRefreshLayout.On
 
         // Add listener to update contents on sort model change
         mState.sortModel.addListener(mSortListener);
+        mSelectionMetadata.setModel(mInjector.getModel());
     }
 
     @Override
