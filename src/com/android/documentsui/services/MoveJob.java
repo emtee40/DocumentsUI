@@ -138,9 +138,6 @@ final class MoveJob extends CopyJob {
 
     void processDocument(DocumentInfo src, DocumentInfo srcParent, DocumentInfo dest)
             throws ResourceException {
-
-        // TODO: When optimized move kicks in, we're not making any progress updates. FIX IT!
-
         // When moving within the same provider, try to use optimized moving.
         // If not supported, then fallback to byte-by-byte copy/move.
         if (src.authority.equals(dest.authority) && (srcParent != null || mSrcParent != null)) {
@@ -151,6 +148,7 @@ final class MoveJob extends CopyJob {
                             dest.derivedUri) != null) {
                         Metrics.logFileOperated(
                                 appContext, operationType, Metrics.OPMODE_PROVIDER);
+                        makeOptimizedCopyProgress(src);
                         return;
                     }
                 } catch (RemoteException | RuntimeException e) {
