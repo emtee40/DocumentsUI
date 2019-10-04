@@ -27,7 +27,7 @@ import com.android.documentsui.base.DocumentInfo;
 import com.android.documentsui.base.Features;
 import com.android.documentsui.roots.RootCursorWrapper;
 
-import libcore.content.type.MimeMap;
+import libcore.net.MimeMap;
 
 import java.util.Random;
 
