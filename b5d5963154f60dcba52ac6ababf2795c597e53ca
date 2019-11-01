@@ -22,6 +22,30 @@
       "revId": "b5d5963154f60dcba52ac6ababf2795c597e53ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97a7db32_25bfac84",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2019-11-01T08:59:40Z",
+      "side": 1,
+      "message": "I thought it can be built with \u0027current\u0027 or \u002728\u0027(fixed version)\nBut I missed that it uses some @SystemAPI resources, so set sdk_version \"system_current\"",
+      "parentUuid": "330154a4_0bf22892",
+      "range": {
+        "startLine": 86,
+        "startChar": 17,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "b5d5963154f60dcba52ac6ababf2795c597e53ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
