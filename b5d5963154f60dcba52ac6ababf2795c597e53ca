@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "330154a4_0bf22892",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2019-11-01T07:26:15Z",
+      "side": 1,
+      "message": "Why is it \"28\" instead of \"system_current\"?",
+      "range": {
+        "startLine": 86,
+        "startChar": 17,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "b5d5963154f60dcba52ac6ababf2795c597e53ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
