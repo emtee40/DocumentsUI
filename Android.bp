@@ -83,6 +83,7 @@ android_library {
 
     min_sdk_version: "28",
     target_sdk_version: "28",
+    sdk_version: "28",
 }
 
 android_app {
