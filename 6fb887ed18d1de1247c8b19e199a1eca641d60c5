@@ -52,6 +52,24 @@
       "revId": "6fb887ed18d1de1247c8b19e199a1eca641d60c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6be6887f_7fab599f",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1319697
+      },
+      "writtenOn": "2019-11-06T10:43:09Z",
+      "side": 1,
+      "message": "Oh! you are right, didn\u0027t noticed that.",
+      "parentUuid": "96ac90a9_8932aa2e",
+      "revId": "6fb887ed18d1de1247c8b19e199a1eca641d60c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
