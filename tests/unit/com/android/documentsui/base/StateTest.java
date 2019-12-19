@@ -27,6 +27,7 @@ import androidx.test.filters.SmallTest;
 import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -89,6 +90,7 @@ public class StateTest {
         assertTrue(mState.shouldShowPreview());
     }
 
+    @Test @Ignore
     public void testPhotoPicking_onlyOneImageType() {
         mIntent.putExtra(Intent.EXTRA_MIME_TYPES, MIME_TYPES[0]);
         mState.initAcceptMimes(mIntent, "*/*");
