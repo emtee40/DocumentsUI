@@ -89,6 +89,7 @@ public class StateTest {
         assertTrue(mState.shouldShowPreview());
     }
 
+    @Test
     public void testPhotoPicking_onlyOneImageType() {
         mIntent.putExtra(Intent.EXTRA_MIME_TYPES, MIME_TYPES[0]);
         mState.initAcceptMimes(mIntent, "*/*");
