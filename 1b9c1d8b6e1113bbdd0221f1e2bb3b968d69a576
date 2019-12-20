@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36f17d0a_9d9c47d1",
+        "filename": "tests/unit/com/android/documentsui/base/StateTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-12-20T17:00:45Z",
+      "side": 1,
+      "message": "Unsurprisingly for a test that wasn\u0027t running, this test fails:\n\njava.lang.AssertionError: EMPTY\njava.lang.AssertionError\n\tat org.junit.Assert.fail(Assert.java:86)\n\tat org.junit.Assert.assertTrue(Assert.java:41)\n\tat org.junit.Assert.assertTrue(Assert.java:52)\n\tat com.android.documentsui.base.StateTest.testPhotoPicking_onlyOneImageType(StateTest.java:98)",
+      "revId": "1b9c1d8b6e1113bbdd0221f1e2bb3b968d69a576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
