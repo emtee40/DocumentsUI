@@ -216,7 +216,7 @@ public abstract class BaseActivity
                         = !TextUtils.isEmpty(mSearchManager.getCurrentSearch())
                         && TextUtils.isEmpty(mSearchManager.getSearchViewText());
                 if (hasFocus && (SearchFragment.get(getSupportFragmentManager()) == null)
-                        && !isInitailSearch) {
+                        && !isInitailSearch && !isDestroyed()) {
                     SearchFragment.showFragment(getSupportFragmentManager(),
                             mSearchManager.getSearchViewText());
                 }
