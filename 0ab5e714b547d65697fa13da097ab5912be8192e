@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58186d7e_3cad2598",
+        "filename": "tests/unit/com/android/documentsui/base/StateTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1360706
+      },
+      "writtenOn": "2019-12-23T03:13:29Z",
+      "side": 1,
+      "message": "String[] stringArray \u003d { MIME_TYPES[0] };\nmIntent.putExtra(Intent.EXTRA_MIME_TYPES, stringArray);\n\nCould you remove @ignore and update it? I already tested it. Thanks.",
+      "revId": "0ab5e714b547d65697fa13da097ab5912be8192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
