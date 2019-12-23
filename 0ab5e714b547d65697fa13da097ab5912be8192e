@@ -16,6 +16,24 @@
       "revId": "0ab5e714b547d65697fa13da097ab5912be8192e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad3f8e14_6d0e1fa4",
+        "filename": "tests/unit/com/android/documentsui/base/StateTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-12-23T03:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58186d7e_3cad2598",
+      "revId": "0ab5e714b547d65697fa13da097ab5912be8192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
