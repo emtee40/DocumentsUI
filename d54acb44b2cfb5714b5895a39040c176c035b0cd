@@ -1,0 +1,10 @@
+Open-Source-Licensing+1: Lint 🤖 <android-build-prod-ayeaye@system.gserviceaccount.com>
+Code-Review+1: Diksha Gohlyan <dikshag@google.com>
+Code-Review+2: Tony Huang <tonyychuang@google.com>
+Autosubmit+1: Ivan Chiang <chiangi@google.com>
+Presubmit-Verified+1: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-by: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-at: Wed, 04 Mar 2020 07:34:02 +0000
+Reviewed-on: https://android-review.googlesource.com/c/platform/packages/apps/DocumentsUI/+/1247891
+Project: platform/packages/apps/DocumentsUI
+Branch: refs/heads/master
