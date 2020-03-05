@@ -1,0 +1,9 @@
+Open-Source-Licensing+1: Lint 🤖 <android-build-prod-ayeaye@system.gserviceaccount.com>
+Code-Review+2: Tony Huang <tonyychuang@google.com>
+Lint+1: Lint 🤖 <android-build-prod-ayeaye@system.gserviceaccount.com>
+Presubmit-Verified+1: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-by: Ivan Chiang <chiangi@google.com>
+Submitted-at: Thu, 05 Mar 2020 06:02:05 +0000
+Reviewed-on: https://android-review.googlesource.com/c/platform/packages/apps/DocumentsUI/+/1249906
+Project: platform/packages/apps/DocumentsUI
+Branch: refs/heads/master
