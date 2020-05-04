@@ -16,6 +16,24 @@
       "revId": "4a71e6bc9976e00cb3d456c919be42fb0bcae965",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8af20969_512448f7",
+        "filename": "MODULE_LICENSE_APACHE2",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359095
+      },
+      "writtenOn": "2020-05-04T22:27:23Z",
+      "side": 1,
+      "message": "The MODULE_LICENSE_* files are usually empty files. They signal by existence not by content. So, this change deletes a file with 0 lines of content.",
+      "parentUuid": "d464d7eb_79d2772a",
+      "revId": "4a71e6bc9976e00cb3d456c919be42fb0bcae965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
