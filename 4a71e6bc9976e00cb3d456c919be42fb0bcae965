@@ -34,6 +34,24 @@
       "revId": "4a71e6bc9976e00cb3d456c919be42fb0bcae965",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cfbb552_af74b5f3",
+        "filename": "MODULE_LICENSE_APACHE2",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060667
+      },
+      "writtenOn": "2020-05-05T16:43:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8af20969_512448f7",
+      "revId": "4a71e6bc9976e00cb3d456c919be42fb0bcae965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
