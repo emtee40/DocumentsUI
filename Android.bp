@@ -112,6 +112,7 @@ android_library {
     static_libs: [
         "androidx.appcompat_appcompat",
         "com.google.android.material_material",
+        "error_prone_annotations",
     ],
 
     resource_dirs: [
