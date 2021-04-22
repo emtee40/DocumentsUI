@@ -1,4 +1,9 @@
 {
+  "mainline-presubmit": [
+    {
+      "name": "DocumentsUIGoogleTests[DocumentsUIGoogle.apk]"
+    }
+  ],
   "postsubmit": [
     {
       "name": "DocumentsUIGoogleTests",
