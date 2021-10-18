@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb785ec_31ee497c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1020839
+      },
+      "writtenOn": "2021-10-18T12:45:17Z",
+      "side": 1,
+      "message": "This is still an issue in Android 12 / master",
+      "revId": "29f5401d59d96551941f3a9b9c01020fd44f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
