@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdeafc25_7c105d05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1734723
+      },
+      "writtenOn": "2022-02-08T18:50:40Z",
+      "side": 1,
+      "message": "can I get some review comments on the gerrit?",
+      "revId": "1a1b6a9e95266347f202833bf4fd0456f9aa3f76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
