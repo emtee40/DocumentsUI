@@ -34,6 +34,24 @@
       "parentUuid": "cc309cf3_f81f7229",
       "revId": "43970eec8436ff8d3dad253ae544eec701d113b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71879758_4897afb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928481
+      },
+      "writtenOn": "2022-02-09T21:17:02Z",
+      "side": 1,
+      "message": "Ivan. You are correct, I don\u0027t work on DocsUI. We are in transition period, and still in the discussion on who will be the owner of DocsUI. (And likely we will have an answer in two weeks). \n\nSince Zemiao is no longer working on anything related, and it will be even harder for him to get into the context. For now, I can take the owners role during this transition period and unblock any teams that need help with making DocsUI changes.",
+      "parentUuid": "35857db7_2718b2f0",
+      "revId": "43970eec8436ff8d3dad253ae544eec701d113b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
