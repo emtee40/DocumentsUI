@@ -16,6 +16,24 @@
       "message": "can I get some review comments on the gerrit?",
       "revId": "1a1b6a9e95266347f202833bf4fd0456f9aa3f76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "678bb697_42051c9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1734723
+      },
+      "writtenOn": "2022-02-11T05:11:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdeafc25_7c105d05",
+      "revId": "1a1b6a9e95266347f202833bf4fd0456f9aa3f76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
