@@ -39,6 +39,30 @@
       },
       "revId": "10d7bc4df173a190b9d46e847c7984ca90c370ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28f567a7_ef9ea122",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1928481
+      },
+      "writtenOn": "2022-05-18T20:12:56Z",
+      "side": 1,
+      "message": "Thanks. (I believe maybe the master one has to go in first?)",
+      "parentUuid": "796703c5_df754e59",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 7
+      },
+      "revId": "10d7bc4df173a190b9d46e847c7984ca90c370ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
