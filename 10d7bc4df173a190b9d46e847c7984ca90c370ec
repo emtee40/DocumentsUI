@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ab4a3f1_6c6c64f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1765766
+      },
+      "writtenOn": "2022-05-18T18:54:33Z",
+      "side": 1,
+      "message": "Thanks for the change!",
+      "revId": "10d7bc4df173a190b9d46e847c7984ca90c370ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796703c5_df754e59",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1765766
+      },
+      "writtenOn": "2022-05-18T18:54:33Z",
+      "side": 1,
+      "message": "Can we use this in OWNERS:\n\"\n# Bug component: 46626\n\ninclude platform/frameworks/base:/core/java/android/os/storage/OWNERS\n\"\n\nI\u0027ve actually been trying to update this in ag/18356874, but keep hitting presubmit issues :(",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 7
+      },
+      "revId": "10d7bc4df173a190b9d46e847c7984ca90c370ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
