@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f687f9_8d27fcba",
+        "filename": "PREUPLOAD.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2022-08-03T19:57:03Z",
+      "side": 0,
+      "message": "Other items here are removed since they were accidentally copy/pasted from frameworks/base/, and they have no applicability inside this repo.",
+      "revId": "546a4cd218a35aa63a15cf7f4fd42f6e75982bd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
