@@ -107,6 +107,9 @@
     <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=30] -->
     <string name="menu_advanced_hide">Hide internal storage</string>
 
+    <!-- Menu item that adds the selected document to launcher home screen -->
+    <string name="menu_add_shortcut">Add launcher shortcut</string>
+
     <!-- Button label that select the current directory [CHAR LIMIT=24] -->
     <string name="button_select">Select</string>
     <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
