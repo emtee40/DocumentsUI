@@ -51,6 +51,23 @@
       "parentUuid": "b02a5cbb_af65a033",
       "revId": "e20989822f1aa50af640640045ec9d8bd28d46a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb8e54d_dc1916cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1765766
+      },
+      "writtenOn": "2023-04-19T17:51:51Z",
+      "side": 1,
+      "message": "Sergey - could you PTAL?",
+      "revId": "e20989822f1aa50af640640045ec9d8bd28d46a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
