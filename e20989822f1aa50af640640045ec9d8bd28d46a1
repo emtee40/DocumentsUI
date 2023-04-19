@@ -16,6 +16,23 @@
       "message": "Friendly yearly reminder. Anything preventing this from being merged?",
       "revId": "e20989822f1aa50af640640045ec9d8bd28d46a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b02a5cbb_af65a033",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1601141
+      },
+      "writtenOn": "2023-04-19T16:43:56Z",
+      "side": 1,
+      "message": "Hi Michael, you only need a +2 vote and ownership review to get this merged. I see these were granted to the change in May 2021, were there anything blocking you from submitting the change back then?\n\nThat being said, I\u0027m no longer the owner to DocsUI so my previous vote may have expired. Adding the current owner to review this again.",
+      "revId": "e20989822f1aa50af640640045ec9d8bd28d46a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
