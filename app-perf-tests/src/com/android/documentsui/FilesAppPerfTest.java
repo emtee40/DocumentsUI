@@ -24,12 +24,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
-import android.support.test.uiautomator.UiDevice;
-import android.test.InstrumentationTestCase;
-import android.test.suitebuilder.annotation.LargeTest;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
+import androidx.test.uiautomator.UiDevice;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
