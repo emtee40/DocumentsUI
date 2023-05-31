@@ -16,10 +16,8 @@
   -->
 
 <resources>
-    <style name="ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <item name="colorControlNormal">?android:textColorSecondary</item>
+    <style name="ActionBarTheme" parent="@style/ActionBarThemeCommon">
         <item name="android:actionMenuTextColor">@*android:color/accent_device_default_dark</item>
-        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="TabTextAppearance" parent="@android:style/TextAppearance.Material.Medium">
