@@ -61,7 +61,7 @@
         <!-- TODO need to solve the error handle in GridItemThumbnail -->
         <item name="gridItemTint">@color/item_doc_grid_tint</item>
 
-        <item name="actionBarTheme">@style/ActionBarTheme</item>
+        <item name="actionBarTheme">@style/ActionBarThemeCommon</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
         <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
