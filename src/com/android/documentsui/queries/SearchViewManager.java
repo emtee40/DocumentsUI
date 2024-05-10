@@ -52,6 +52,7 @@ import com.android.documentsui.base.EventHandler;
 import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.base.Shared;
 import com.android.documentsui.base.State;
+import com.android.modules.utils.build.SdkLevel;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -226,7 +227,7 @@ public class SearchViewManager implements
         mSearchView.setOnCloseListener(this);
         mSearchView.setOnSearchClickListener(this);
         mSearchView.setOnQueryTextFocusChangeListener(this);
-        final View clearButton = mSearchView.findViewById(R.id.search_close_btn);
+        final View clearButton = mSearchView.findViewById(androidx.appcompat.R.id.search_close_btn);
         if (clearButton != null) {
             clearButton.setPadding(clearButton.getPaddingStart() + getPixelForDp(4),
                     clearButton.getPaddingTop(), clearButton.getPaddingEnd() + getPixelForDp(4),
@@ -236,6 +237,17 @@ public class SearchViewManager implements
                 mSearchView.requestFocus();
                 mListener.onSearchViewClearClicked();
             });
+        }
+        if (SdkLevel.isAtLeastU()) {
+            final View textView = mSearchView.findViewById(androidx.appcompat.R.id.search_src_text);
+            if (textView != null) {
+                try {
+                    textView.setIsHandwritingDelegate(true);
+                } catch (LinkageError e) {
+                    // Running on a device with an older build of Android U
+                    // TODO(b/274154553): Remove try/catch block after Android U Beta 1 is released
+                }
+            }
         }
 
         mFullBar = isFullBarSearch;

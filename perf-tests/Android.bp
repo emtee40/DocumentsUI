@@ -8,7 +8,6 @@ android_test {
     manifest: "AndroidManifest.xml",
 
     srcs: [
-        ":DocumentsUIPerfTests-files",
         "src/**/*.java",
     ],
 
@@ -23,12 +22,13 @@ android_test {
     ],
 
     static_libs: [
+        "DocumentsUIPerfTests-lib",
         "androidx.legacy_legacy-support-v4",
         "androidx.test.rules",
         "androidx.test.espresso.core",
         "mockito-target",
         "ub-janktesthelper",
-        "ub-uiautomator",
+        "androidx.test.uiautomator_uiautomator",
     ],
 
     platform_apis: true,
